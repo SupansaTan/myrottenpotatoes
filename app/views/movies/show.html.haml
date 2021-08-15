@@ -11,5 +11,11 @@
 %h3 Description:
  
 %p#description= @movie.description
- 
+
+= link_to 'Edit info', edit_movie_path(@movie)
+%br
+
+= link_to 'Delete', movie_path(@movie), :method => :delete
+%br
+
 = link_to 'Back to movie list', movies_path

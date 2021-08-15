@@ -2,15 +2,15 @@
   %head
     %title RottenPotatoes!
     = stylesheet_link_tag 'application'
-
+    = javascript_pack_tag 'application'
     = csrf_meta_tags
  
   %body
-    - if flash[:notice]
-      #notice.message= flash[:notice]
-    - elsif flash[:warning]
-      #warning.message= flash[:warning]
+    %h1.title Rotten Potatoes!
+    #main
+      - if flash[:notice]
+        #notice.message= flash[:notice]
+      - elsif flash[:warning]
+        #warning.message= flash[:warning]
 
-    = yield
-
-    
+      = yield
