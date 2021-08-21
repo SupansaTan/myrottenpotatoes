@@ -46,11 +46,16 @@ h1 {
 h1.title {
     margin: 0 0 1em;
     padding: 10px;
-    background-color: orange;
-    color: white;
-    border-bottom: 4px solid gold;
+    background-color: #ffe5b4;
+    color: red;
+    border-bottom: 4px solid #fad99b;
     font-size: 2em;
     font-style: normal;
+}
+
+h1.title a {
+    color: red;
+    text-decoration: none;
 }
 
 table#movies {
@@ -73,6 +78,7 @@ table#movies th, table#movies td {
 
 #notice, #warning {
     background: rosybrown;
+    color: white;
     margin: 1em 0;
     padding: 4px;
 }
