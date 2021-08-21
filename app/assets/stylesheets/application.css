@@ -76,6 +76,10 @@ table#movies th, table#movies td {
     text-align: left;
 }
 
+table#movies tr:hover {
+    background-color: #ffdb58;
+}
+
 #notice, #warning {
     background: rosybrown;
     color: white;
