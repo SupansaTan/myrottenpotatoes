@@ -1,6 +1,7 @@
 class MoviesController < ApplicationController
     def index
         @movies = Movie.all
+        @sort_movies = @movies.sort_by(&:title)
     end
 
     def show

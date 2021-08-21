@@ -10,7 +10,7 @@
       %th More Info
 
   %tbody
-    - @movies.each_with_index do |movie, index|
+    - @sort_movies.each_with_index do |movie, index|
       %tr
         %td.text_center= index
         %td= movie.title 
