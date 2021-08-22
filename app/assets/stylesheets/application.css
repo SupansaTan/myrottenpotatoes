@@ -43,6 +43,15 @@ h1 {
     border-bottom: 1px solid DarkSlateGrey;
 }
 
+textarea {
+    width: 30%;
+    margin-bottom: .5rem;
+}
+
+label {
+    margin: .5rem 0;
+}
+
 .text_center {
     text-align: center !important;
 }

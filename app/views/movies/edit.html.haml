@@ -10,7 +10,9 @@
     = label :movie, :release_date, 'Released On'
     = date_select :movie, :release_date, :start_year => Date.today.year, :end_year => 1930 
 
-    %br
+    = label :movie, :description, 'Description'
+    = text_area :movie, :description, :rows => 4
+
     %br
     = submit_tag 'Save Changes'
 
