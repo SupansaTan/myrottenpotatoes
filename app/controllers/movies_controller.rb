@@ -5,8 +5,14 @@ class MoviesController < ApplicationController
     end
 
     def show
-        id = params[:id]
-        @movie = Movie.find(id)
+        begin
+            id = params[:id]
+            @movie = Movie.find(id)
+
+        rescue ActiveRecord::RecordNotFound => e
+            flash[:warning] = "No movie with the given ID could be found."
+            return redirect_to movies_path
+        end
     end
 
     def new
