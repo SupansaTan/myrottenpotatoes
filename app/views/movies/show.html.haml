@@ -12,10 +12,8 @@
  
 %p#description= @movie.description
 
-= link_to 'Edit info', edit_movie_path(@movie)
-%br
+= link_to 'Edit info', edit_movie_path(@movie), :class => "btn"
 
-= link_to 'Delete', movie_path(@movie), :method => :delete
-%br
+= link_to 'Delete', movie_path(@movie), :method => :delete, :class => "red btn"
 
-= link_to 'Back to movie list', movies_path
+= link_to 'Back to movie list', movies_path, :class => "btn"
