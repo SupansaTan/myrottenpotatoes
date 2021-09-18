@@ -1,20 +1,6 @@
 %h2 Create New Movie
- 
-= form_tag movies_path, :method => :post do
- 
-  = label :movie, :title, 'Title'
-  = text_field :movie, :title
- 
-  = label :movie, :rating, 'Rating'
-  = select :movie, :rating, ['G','PG','PG-13','R','NC-17']
- 
-  = label :movie, :release_date, 'Released On'
-  = date_select :movie, :release_date, :start_year => Date.today.year, :end_year => 1930 
 
-  = label :movie, :description, 'Description'
-  = text_area :movie, :description, :rows => 4
-
-  %br
+= form_tag '/movies', :method => :post do
+  = render :partial => 'movie_form'
   = submit_tag 'Save Changes'
-
-= link_to 'Cancel', movies_path, :class => "btn"
+  = link_to 'Cancel', movies_path, :class => "btn"

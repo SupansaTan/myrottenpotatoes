@@ -1,0 +1,7 @@
+-# A single row of the All Movies table
+%tr
+  %td.text-center= movie_counter+1
+  %td= movie.title 
+  %td= movie.rating
+  %td= movie.release_date
+  %td= link_to "More about #{movie.title}", movie_path(movie)
