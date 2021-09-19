@@ -64,6 +64,3 @@ gem "actionpack", ">= 6.1.4.1"
 
 # Login with twitter
 gem "omniauth-twitter", "~> 1.4.0"
-
-# TMDb
-gem 'themoviedb'
