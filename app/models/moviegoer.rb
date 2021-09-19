@@ -11,5 +11,3 @@ class Moviegoer < ApplicationRecord
       :name => auth["info"]["name"])
   end
 end
-
-end
