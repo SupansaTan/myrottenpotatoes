@@ -10,12 +10,6 @@
       %th More Info
 
   %tbody
-    - @sort_movies.each_with_index do |movie, index|
-      %tr
-        %td.text-center= index
-        %td= movie.title 
-        %td= movie.rating
-        %td= movie.release_date
-        %td= link_to "More about #{movie.title}", movie_path(movie)
+    = render :partial=>'movie', :collection=>@sort_movies 
 
 = link_to 'Add new movie', new_movie_path, :class => "btn"
