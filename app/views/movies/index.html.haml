@@ -1,9 +1,9 @@
-%h1 All Movies
+%h3 All Movies
  
-%table#movies
+%table#movies.my-3
   %thead
     %tr
-      %th.text_center #
+      %th.text-center #
       %th Movie Title
       %th Rating
       %th Release Date
@@ -12,7 +12,7 @@
   %tbody
     - @sort_movies.each_with_index do |movie, index|
       %tr
-        %td.text_center= index
+        %td.text-center= index
         %td= movie.title 
         %td= movie.rating
         %td= movie.release_date

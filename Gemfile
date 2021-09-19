@@ -59,3 +59,11 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # use Haml for templates
 gem 'haml'
+
+gem "actionpack", ">= 6.1.4.1"
+
+# Login with twitter
+gem "omniauth-twitter", "~> 1.4.0"
+
+# TMDb
+gem 'themoviedb'

@@ -76,4 +76,7 @@ Rails.application.configure do
 
   #config.active_record.mass_assignment_sanitizer = :strict
 
+  # using sass, scss
+  config.sass.preferred_syntax = :sass
+  config.sass.syntax = :sass
 end
