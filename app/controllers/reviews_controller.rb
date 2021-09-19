@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
     before_filter :has_moviegoer_and_movie, :only => [:new, :create]
-    
+
     protected
     def has_moviegoer_and_movie
       unless @current_user
@@ -23,4 +23,27 @@ class ReviewsController < ApplicationController
       @current_user.reviews << @movie.reviews.build(params[:review])
       redirect_to movie_path(@movie)
     end
+
+
+    def edit
+        @movie = Movie.find params[:movie_id]
+        @review = Review.find params[:id]
+    end
+
+    def update
+        @movie = Movie.find params[:movie_id]
+        @review = Review.find params[:id]
+        if @review.update(review_params) 
+            flash[:notice] = "Review was successfully updated."
+            redirect_to movie_path(@movie)
+        else
+            render 'edit'
+        end
+    end
+
+    private
+    def review_params
+        params.require(:review).permit(:potatoes)
+    end
+    
 end
