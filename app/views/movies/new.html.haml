@@ -2,5 +2,6 @@
 
 = form_tag '/movies', :method => :post do
   = render :partial => 'movie_form'
-  = submit_tag 'Save Changes'
-  = link_to 'Cancel', movies_path, :class => "btn"
+  = submit_tag 'Save Changes', :class => 'd-block'
+
+= link_to 'Cancel', movies_path, :class => "btn my-2"
