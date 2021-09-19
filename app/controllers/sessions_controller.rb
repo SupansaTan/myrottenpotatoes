@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
     # user shouldn't have to be logged in before logging in!
-    skip_before_filter :set_current_user
+    skip_before_action :set_current_user
     def create
         auth=request.env["omniauth.auth"]
         user=Moviegoer.find_by_provider_and_uid(auth["provider"],auth["uid"]) ||
