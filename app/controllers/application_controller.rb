@@ -13,4 +13,15 @@ class ApplicationController < ActionController::Base
     def set_config
         @configuration = Tmdb::Configuration.new
     end
+
+    protected
+  
+    def authenticate!
+        
+        unless @current_user
+            redirect_to login_path
+        end
+    end
+
+
 end
