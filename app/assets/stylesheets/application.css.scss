@@ -39,7 +39,7 @@ div#main {
 a {
     background: transparent;
     color: maroon;
-    text-decoration: underline;
+    text-decoration: none;
     font-weight: bold;
 }
 
@@ -54,7 +54,6 @@ h1 {
     
         a {
             color: red;
-            text-decoration: none;
         }
     }
 }
@@ -85,11 +84,7 @@ label {
 }
 
 .btn {
-    color: black;
-    padding: .5rem 1rem;
     border-radius: .5rem;
-    text-decoration: none;
-    background-color: #ffdead;
 }
 
 .red.btn {

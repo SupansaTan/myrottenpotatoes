@@ -46,6 +46,18 @@ class MoviesController < ApplicationController
         redirect_to movies_path
     end
 
+    # using TMDb
+    def search_tmdb
+        @search_key = params[:search_key]
+        @movies = Tmdb::Movie.find(@search_key)
+
+        if @movies   # exist in tmdb
+            render 'tmdb'
+        else
+            flash[:warning] = "'#{@search_key}' not found in TMDb"
+        end
+    end
+
     private 
         def movie_params
             params.require(:movie).permit(:title, :rating, :release_date, :description)

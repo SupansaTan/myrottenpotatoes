@@ -1,0 +1,13 @@
+%main.container
+  %h1= 'Search Results: ' + @search_key
+
+  %table#movies
+    %thead
+      %tr
+        %th #
+        %th Poster
+        %th Title
+        %th Release Date
+
+    %tbody
+      = render :partial => 'tmdb_tbody', :collection => @movies
