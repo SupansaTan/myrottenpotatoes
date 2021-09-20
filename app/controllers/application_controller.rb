@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
 
     # config TMDB
     require 'themoviedb'
-    Tmdb::Api.key("56a532b46b2f4d48499071df7a75663e")
+    require_relative '../../config/.tmdb_key.rb'  # get api key
+    Tmdb::Api.key($api_key)
 
     def set_config
         @configuration = Tmdb::Configuration.new
