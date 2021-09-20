@@ -112,6 +112,8 @@ GEM
       railties (>= 5.0, < 7)
       rexml (~> 3.0)
       webrick (~> 1.7)
+    cucumber-rails-training-wheels (1.0.0)
+      cucumber-rails (>= 1.1.1)
     cucumber-tag-expressions (3.0.1)
     cucumber-wire (6.1.1)
       cucumber-core (~> 10.0, >= 10.0.1)
@@ -139,6 +141,8 @@ GEM
       concurrent-ruby (~> 1.0)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
+    launchy (2.5.0)
+      addressable (~> 2.7)
     listen (3.7.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
@@ -158,10 +162,6 @@ GEM
     multi_test (0.1.2)
     multi_xml (0.6.0)
     nio4r (2.5.8)
-    nokogiri (1.12.4-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.12.4-x86_64-darwin)
-      racc (~> 1.4)
     nokogiri (1.12.4-x86_64-linux)
       racc (~> 1.4)
     oauth (0.5.6)
@@ -287,11 +287,13 @@ DEPENDENCIES
   actionpack (>= 6.1.4.1)
   bootsnap (>= 1.4.4)
   byebug
-  capybara (>= 3.26)
+  capybara
   cucumber-rails
+  cucumber-rails-training-wheels
   database_cleaner
   haml
   jbuilder (~> 2.7)
+  launchy
   listen (~> 3.3)
   omniauth-twitter (~> 1.4.0)
   puma (~> 5.0)
