@@ -40,3 +40,5 @@ yarn-debug.log*
 .yarn-integrity
 
 .tmdb_key.rb
+
+.DS_store
