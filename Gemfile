@@ -67,3 +67,9 @@ gem "omniauth-twitter", "~> 1.4.0"
 
 # TMDb
 gem 'themoviedb'
+
+group :test do
+  gem 'cucumber-rails', require: false
+  # database_cleaner is not mandatory, but highly recommended
+  gem 'database_cleaner'
+end
