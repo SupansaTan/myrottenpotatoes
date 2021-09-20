@@ -72,4 +72,7 @@ group :test do
   gem 'cucumber-rails', require: false
   # database_cleaner is not mandatory, but highly recommended
   gem 'database_cleaner'
+
 end
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
