@@ -68,6 +68,7 @@ gem "omniauth-twitter", "~> 1.4.0"
 gem 'themoviedb'
 
 group :test do
+<<<<<<< HEAD
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions  
   gem 'database_cleaner' # to clear Cucumber's test database between runs
@@ -75,3 +76,12 @@ group :test do
   gem 'launchy'          # a useful debugging aid for user stories
 end
 
+=======
+  gem 'cucumber-rails', require: false
+  # database_cleaner is not mandatory, but highly recommended
+  gem 'database_cleaner'
+
+end
+
+gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+>>>>>>> 7dc4fbd6b773e22d902b59bd6eb2e956f2508c50
