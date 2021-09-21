@@ -25,10 +25,11 @@ module NavigationHelpers
     when /^the Edit Movie page/
       "/movies/#{Movie.last.id}/edit"
       
+    when /^the Search TMDb page/
+      "/movies/search_tmdb"
+
     when /^(.+) page/
       "/movies/#{Movie.last.id}"
-
-    
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
     #
