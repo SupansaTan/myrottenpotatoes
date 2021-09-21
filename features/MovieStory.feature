@@ -38,3 +38,4 @@ Scenario: Delete a movie
   And I should see "Men In Black"
   Then I follow "Delete"
   Then I should be on the RottenPotatoes home page
+
