@@ -68,14 +68,14 @@ gem "omniauth-twitter", "~> 1.4.0"
 gem 'themoviedb'
 
 group :test do
-
   gem 'cucumber-rails', :require => false
   gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions  
   gem 'database_cleaner' # to clear Cucumber's test database between runs
   gem 'capybara'         # lets Cucumber pretend to be a web browser
   gem 'launchy'          # a useful debugging aid for user stories
+  gem 'rspec-rails'
 end
 
-
+gem 'themoviedb'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
