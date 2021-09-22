@@ -6,6 +6,7 @@
     = csrf_meta_tags
  
   %body
+    = render :partial=>'login'
     %h1.title.w-100.d-block
       = link_to 'RottenPotatoes', movies_path
 
@@ -16,4 +17,3 @@
         #warning.message= flash[:warning]
 
       = yield
-      = render :partial=>'login'
