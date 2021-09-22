@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  devise_for :users
   resources :movies
   root :to => redirect('/movies')
 
@@ -7,8 +6,5 @@ Rails.application.routes.draw do
   post '/movies/search_tmdb'
 
   # authentication
-  get  'auth/twitter' => 'sessions#create'
-  post  'auth/:provider/callback' => 'sessions#create'
-  post 'logout' => 'sessions#destroy'
-  get  'auth/failure' => 'sessions#failure'
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
 end
