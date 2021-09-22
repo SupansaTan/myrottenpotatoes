@@ -5,6 +5,7 @@ class CreateMovies < ActiveRecord::Migration[6.1]
       t.string 'rating'
       t.text 'description'
       t.datetime 'release_date'
+      t.text 'poster_path'
 
       # Add fields that let Rails automatically keep track
       # of when movies are added or modified:
