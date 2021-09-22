@@ -1,7 +1,19 @@
 -# A single row of the All Movies table
-%tr
-  %td.text-center= movie_counter+1
-  %td= movie.title 
-  %td= movie.rating
-  %td= movie.release_date.strftime('%Y-%m-%d')
-  %td= link_to "More about #{movie.title}", movie_path(movie)
+.col
+  .row.mx-3
+    - if !movie.poster_path.to_s.empty?
+      %img.poster.py-2{:src => 'https://image.tmdb.org/t/p/w300' + movie.poster_path.to_s}
+    - else 
+      .card-poster.my-2
+        = image_tag 'potatoes.svg', :class=>'mx-auto'
+
+  .row.mx-3
+    %a.movie-title{:href=>movie_path(movie)}
+      %h5.mb-0= movie.title
+
+  .row.me-3.ms-4.my-2
+    %p.release-date.mb-0= movie.release_date.strftime('%Y-%m-%d')
+
+  .row.me-3.ms-4.my-2.rating
+    %p.d-inline.rating.px-0.ps-2.mb-0 Rating:
+    %p.d-inline.rating.ps-1.pe-2.mb-0= movie.rating
