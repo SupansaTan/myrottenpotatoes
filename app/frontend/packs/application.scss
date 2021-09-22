@@ -2,9 +2,40 @@
 @import '../scss/variables';
 @import '../../assets/stylesheets/application.css.scss';
 
+@import '../scss/index.scss';
+
+body {
+    font-family: $font-stack;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+.btn {
+    border-radius: 50px;
+
+    &.green {
+        background-color: $green;
+    }
+
+    &.red {
+        background-color: $light-red;
+    }
+
+    &:hover, &:focus {
+        outline: none;
+        box-shadow: 0 0 20px #cfcfcf;
+    }
+}
+
 .navbar-dark {
+    font-weight: 600;
+
     .navbar-brand {
         color: $yellow;
+        font-size: 1.5rem;
 
         &:hover {
             color: $yellow;

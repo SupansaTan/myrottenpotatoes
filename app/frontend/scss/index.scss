@@ -1,0 +1,39 @@
+/* poster */
+img.poster {
+    border-radius: 35px;
+}
+
+.card-poster {
+    position: relative;
+    height: 370px;
+    border-radius: 25px;
+    background-color: $light-grey;
+
+    img {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
+}
+
+/* rating & release date */
+p {
+    &.rating {
+        width: fit-content;
+    }
+
+    &.release-date {
+        width: fit-content;
+        border-radius: 50px;
+        background-color: $light-grey;
+    }
+}
+
+.row.rating {
+    width: fit-content;
+    border-radius: 50px;
+    background-color: $yellow;
+}
