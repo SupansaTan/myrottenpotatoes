@@ -1,25 +1,10 @@
-%h3 All Movies
- 
-%table#movies.my-3
-  %thead
-    %tr
-      %th.text-center #
-      %th Movie Title
-      %th Rating
-      %th Release Date
-      %th More Info
+.row
+  .col
+    %h3.mb-0 All Movies
+  .col-auto
+    %a.btn.green{:href => new_movie_path}
+      %i.fas.fa-plus
+      Add new movie
 
-  %tbody
-    = render :partial=>'movie', :collection=>@sort_movies 
-
-= link_to 'Add new movie', new_movie_path, :class => "btn"
-
-%h3.mt-4 Search movie in TMDb
-
-.col-md-5
-  = form_tag :action => 'search_tmdb', :class => 'w-100' do
-    .input-group
-      %input.form-control{:type => 'search', :name => 'search_key'}
-      %button.btn.btn-outline-success{:type => 'submit'}
-        %i.fa.fa-search
-        Search
+.row.row-cols-4.g-4.mt-2
+  = render :partial => 'movie', :collection => @sort_movies
