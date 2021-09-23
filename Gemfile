@@ -44,6 +44,8 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript
 end
 
 group :test do
@@ -76,6 +78,5 @@ group :test do
   gem 'rspec-rails'
 end
 
-gem 'themoviedb'
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
