@@ -18,48 +18,7 @@
 
 $font-stack: 'Poppins', Tahoma, Verdana, sans-serif;
 
-html, body {
-    margin: 0;
-    padding: 0;
-    font-family: $font-stack;
-}
-
-.btn {
-    &:hover, &:focus {
-        outline: none;
-        box-shadow: 0 0 20px #cfcfcf;
-    }
-}
-
-div#main {
-    margin: 0;
-    padding: 0 20px 20px;
-}
-
-a {
-    background: transparent;
-    color: maroon;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-h1 {
-    &.title {
-        margin: 0 0 1em;
-        padding: .5rem;
-        background-color: #ffe5b4;
-        border-bottom: 4px solid #fad99b;
-        font-size: 2em;
-        font-style: normal;
-    
-        a {
-            color: red;
-        }
-    }
-}
-
 input:not(input[type="submit"]) {
-    font-size: 1.2rem;
     font-family: $font-stack;
 }
 
@@ -81,10 +40,6 @@ textarea {
 
 label {
     margin: .5rem 0;
-}
-
-.btn {
-    border-radius: .5rem;
 }
 
 .red.btn {
