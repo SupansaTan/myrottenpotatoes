@@ -2,5 +2,6 @@
 
 = form_tag movie_path(@movie), :method => :put do
   = render :partial => 'movie_form'
+
+  = link_to 'Cancel', movie_path(@movie), :class => "red btn"
   = submit_tag 'Update Movie Info'
-  = link_to 'Cancel', movie_path(@movie), :class => "btn"
