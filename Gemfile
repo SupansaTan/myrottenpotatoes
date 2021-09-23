@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  
-
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -75,7 +75,7 @@ group :test do
   gem 'database_cleaner' # to clear Cucumber's test database between runs
   gem 'capybara'         # lets Cucumber pretend to be a web browser
   gem 'launchy'          # a useful debugging aid for user stories
-  gem 'rspec-rails'
+  
 end
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?

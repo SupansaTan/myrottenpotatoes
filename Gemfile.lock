@@ -127,6 +127,11 @@ GEM
     database_cleaner-core (2.0.1)
     diff-lcs (1.4.4)
     erubi (1.10.0)
+    factory_girl (4.9.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.9.0)
+      factory_girl (~> 4.9.0)
+      railties (>= 3.0.0)
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
@@ -214,6 +219,10 @@ GEM
       bundler (>= 1.15.0)
       railties (= 6.1.4.1)
       sprockets-rails (>= 2.0.0)
+    rails-controller-testing (1.0.5)
+      actionpack (>= 5.0.1.rc1)
+      actionview (>= 5.0.1.rc1)
+      activesupport (>= 5.0.1.rc1)
     rails-dom-testing (2.0.3)
       activesupport (>= 4.2.0)
       nokogiri (>= 1.6)
@@ -319,6 +328,7 @@ DEPENDENCIES
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
+  factory_girl_rails
   haml
   jasmine-rails
   jbuilder (~> 2.7)
@@ -328,6 +338,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.3, >= 6.1.3.2)
+  rails-controller-testing
   rspec-rails
   sass-rails (>= 6)
   selenium-webdriver
