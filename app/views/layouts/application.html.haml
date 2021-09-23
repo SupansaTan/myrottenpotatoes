@@ -22,7 +22,7 @@
               .search-group.col-6.mx-auto
                 %a{:href => '#', :onclick => "document.getElementById('search-in-tmdb').submit()"}
                   %i.fa.fa-search
-                %input.form-control.search{:type=>'search', :placeholder=>'Search movie in TMDb ...', :name => 'search_key'}
+                %input.form-control.search{:type=>'search', :placeholder=>'Search movie in TMDb ...', :name => 'search_terms', :required => true}
 
           %ul.navbar-nav.ms-auto.col-auto
             = render :partial=>'login'
