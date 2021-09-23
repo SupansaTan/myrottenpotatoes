@@ -85,6 +85,4 @@ Rails.application.configure do
   # using sass, scss
   config.sass.preferred_syntax = :sass
   config.sass.syntax = :sass
-
-  config.assets.prefix = "/frontend"
 end

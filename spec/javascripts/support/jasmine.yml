@@ -1,7 +1,7 @@
 # path to parent directory of src_files
 # relative path from Rails.root
 # defaults to app/assets/javascripts
-src_dir: "app/frontend/js"
+src_dir: "app/javascript"
 
 # path to additional directory of source file that are not part of assets pipeline and need to be included
 # relative path from Rails.root
@@ -12,7 +12,7 @@ src_dir: "app/frontend/js"
 # path to parent directory of css_files
 # relative path from Rails.root
 # defaults to app/assets/stylesheets
-css_dir: "app/frontend/scss"
+css_dir: "app/assets/stylesheets"
 
 # list of file expressions to include as source files
 # relative path from src_dir
