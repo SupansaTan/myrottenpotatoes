@@ -148,11 +148,22 @@ table#movies {
     }
 }
 
-#notice, #warning {
-    background: rosybrown;
-    color: white;
-    margin: 1em 0;
-    padding: 4px;
+.message {
+    width: fit-content;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 25px;
+    padding: .5rem 1rem;
+
+    &#notice {
+        color: black;
+        background: $yellow;
+    }
+
+    &#warning {
+        color: red;
+        background: $light-red;
+    }
 }
 
 form label {
