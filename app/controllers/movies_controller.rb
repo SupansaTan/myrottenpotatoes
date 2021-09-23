@@ -71,6 +71,24 @@ class MoviesController < ApplicationController
         end
     end
 
+    def create_from_tmdb
+        movie_id = params[:tmdb_id]
+        movie = Movie.get_from_tmdb(movie_id)
+
+        @movie = Movie.new({
+            :title => movie["title"],
+            :rating => "",
+            :release_date => movie["release_date"],
+            :description => movie["overview"],
+            :poster_path => movie["poster_path"]
+        })
+
+        if @movie.save
+            flash[:notice] = "#{@movie.title} was successfully created."
+            redirect_to movies_path(@movie)
+        end
+    end
+
     private 
         def movie_params
             params.require(:movie).permit(:title, :rating, :release_date, :description)

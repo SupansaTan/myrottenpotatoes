@@ -42,4 +42,12 @@ class Movie < ActiveRecord::Base
       end
     end
   end
+
+  def self.get_from_tmdb(id)
+    begin
+      Tmdb::Movie.detail(id)
+    rescue Tmdb::InvalidApiKeyError
+      raise Movie::InvalidKeyError, 'Invalid API key'
+    end
+  end
 end
