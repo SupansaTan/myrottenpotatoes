@@ -1,11 +1,19 @@
 -# A single row of the All Movies table
 .col
-  .row.mx-3
+  .row.mx-3.poster
     - if !movie.poster_path.to_s.empty?
-      %img.poster.py-2{:src => 'https://image.tmdb.org/t/p/w300' + movie.poster_path.to_s}
-    - else 
       .card-poster.my-2
-        = image_tag 'potatoes.svg', :class=>'mx-auto'
+        %img.poster{:src => 'https://image.tmdb.org/t/p/w300' + movie.poster_path.to_s}
+        %a.btn.green{:href => '#'}
+          %i.fas.fa-plus.me-1
+          Add Review
+
+    - else 
+      .card-poster.my-2.potatoes
+        = image_tag 'potatoes.svg', :class=>'mx-auto potatoes'
+        %a.btn.green{:href => '#'}
+          %i.fas.fa-plus.me-1
+          Add Review
 
   .row.mx-3
     %a.movie-title{:href=>movie_path(movie)}
