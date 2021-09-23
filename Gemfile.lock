@@ -127,11 +127,6 @@ GEM
     database_cleaner-core (2.0.1)
     diff-lcs (1.4.4)
     erubi (1.10.0)
-    factory_girl (4.9.0)
-      activesupport (>= 3.0.0)
-    factory_girl_rails (4.9.0)
-      factory_girl (~> 4.9.0)
-      railties (>= 3.0.0)
     ffi (1.15.4)
     globalid (0.5.2)
       activesupport (>= 5.0)
@@ -328,7 +323,6 @@ DEPENDENCIES
   cucumber-rails
   cucumber-rails-training-wheels
   database_cleaner
-  factory_girl_rails
   haml
   jasmine-rails
   jbuilder (~> 2.7)
