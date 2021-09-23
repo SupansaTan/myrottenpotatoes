@@ -29,8 +29,8 @@
 
     .container.mt-4
       - if flash[:notice]
-        #notice.message= flash[:notice]
+        #notice.message.my-4.mx-auto.px-4= flash[:notice]
       - elsif flash[:warning]
-        #warning.message= flash[:warning]
+        #warning.message.my-4.mx-auto.px-4= flash[:warning]
 
       = yield

@@ -66,7 +66,7 @@ class MoviesController < ApplicationController
         if !@movies.empty?   # exist in tmdb
             render 'tmdb'
         else
-            flash[:warning] = "'#{@search_terms}' not found in TMDb"
+            flash[:warning] = "Sorry, no results found for '#{@search_terms}'"
             redirect_to movies_path
         end
     end
