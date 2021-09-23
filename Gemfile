@@ -62,6 +62,8 @@ gem 'haml'
 
 gem "actionpack", ">= 6.1.4.1"
 
+gem "omniauth", "~> 1.9.1"
+
 # Login with twitter
 gem "omniauth-twitter", "~> 1.4.0"
 
