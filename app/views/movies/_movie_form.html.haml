@@ -4,16 +4,30 @@
     %ul
       - @movie.errors.full_messages.each do |error|
         %li= error
-        
-= label :movie, :title, 'Title'
-= text_field :movie, 'title'
 
-= label :movie, :rating, 'Rating'
-= select :movie, :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17']
+.container 
+  
+  .row
+    .col-3
+      = label :movie, :title, 'Title'
+    .col
+      = text_field :movie, 'title'
 
-= label :movie, :release_date, 'Released On'
-= date_select :movie, :release_date, :start_year => Date.today.year, :end_year => 1900 
+  .row
+    .col-3
+      = label :movie, :rating, 'Rating'
+    .col
+      = select :movie, :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17']
 
-= label :movie, :description, 'Description'
-= text_area :movie, :description, :rows => 4
+  .row
+    .col-3
+      = label :movie, :release_date, 'Released On'
+    .col
+      = date_select :movie, :release_date, :start_year => Date.today.year, :end_year => 1900 
+
+  .row
+    .col-3
+      = label :movie, :description, 'Description'
+    .col
+      = text_area :movie, :description, :rows => 5
 
