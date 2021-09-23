@@ -3,5 +3,8 @@
 = form_tag movie_path(@movie), :method => :put do
   = render :partial => 'movie_form'
 
-  = link_to 'Cancel', movie_path(@movie), :class => "red btn"
-  = submit_tag 'Update Movie Info'
+
+  .col-9.mx-auto
+    .row.gap-3
+      %a.button.col-2{:href => movies_path, :class => 'red btn'} Cancel
+      %a.button.col-3{:href =>"#", :class => 'green btn'} Update Movie Info
