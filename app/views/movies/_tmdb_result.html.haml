@@ -1,0 +1,20 @@
+.col
+  .row.mx-3.poster
+    - if !tmdb_result.poster_path.to_s.empty?
+      .card-poster.my-2
+        %img.poster{:src => 'https://image.tmdb.org/t/p/w300' + tmdb_result.poster_path.to_s}
+        %a.btn.black{:href => '#', :alt=>'add to movie list'}
+          %i.fas.fa-plus.my-1
+
+    - else 
+      .card-poster.my-2.potatoes
+        = image_tag 'potatoes.svg', :class=>'mx-auto potatoes'
+        %a.btn.black{:href => '#', :alt=>'add to movie list'}
+          %i.fas.fa-plus.my-1
+
+  .row.mx-3
+    %a.movie-title{:href=>"#"}
+      %h5.mb-0= tmdb_result.title
+
+  .row.me-3.ms-4.my-2
+    %p.release-date.mb-0= tmdb_result.release_date

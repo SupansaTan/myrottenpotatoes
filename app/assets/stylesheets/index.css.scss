@@ -4,7 +4,7 @@
 .card-poster {
     position: relative;
     height: 370px;
-    width: fit-content;
+    width: 264px;
     border-radius: 25px;
 
     &.potatoes {
@@ -24,6 +24,8 @@
 
         &.poster {
             height: 370px;
+            width: 100%;
+            max-width: 100%;
             border-radius: 25px;
             width: max-content;
         }
