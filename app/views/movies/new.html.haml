@@ -2,10 +2,8 @@
 
 = form_tag '/movies', :method => :post do
   = render :partial => 'movie_form'
-  
-  .row
-    .col-1
-      = link_to 'Cancel', movies_path, :class => "red btn"
-    
-    .col
-      = submit_tag 'Save Changes', :class => 'd-block'
+
+  .col-8.mx-auto
+    .row.gap-3
+      %a.button.col-2{:href => movies_path, :class => 'red btn'} Cancel
+      %a.button.col-2{:href =>"#", :class => 'green btn'} Save Changes
