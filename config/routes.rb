@@ -5,7 +5,8 @@ Rails.application.routes.draw do
   root :to => redirect('/movies')
 
   # tmdb
-  post '/movies/search_tmdb'
+  post '/movies/search_tmdb' => 'movies#search_tmdb'
+  post '/movies/create_from_tmdb' => 'movies#create_from_tmdb'
 
   # authentication
   get  'auth/twitter' => 'sessions#create'
