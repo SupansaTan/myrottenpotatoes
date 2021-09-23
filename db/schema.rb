@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2021_09_20_152122) do
     t.string "rating"
     t.text "description"
     t.datetime "release_date"
+    t.text "poster_path"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "director"
