@@ -8,7 +8,7 @@ class MoviesController < ApplicationController
         begin
             id = params[:id]
             @movie = Movie.find(id)
-
+            render(:partial => 'movie', :object => @movie) if request.xhr?
         rescue ActiveRecord::RecordNotFound => e
             flash[:warning] = "No movie with the given ID could be found."
             return redirect_to movies_path
