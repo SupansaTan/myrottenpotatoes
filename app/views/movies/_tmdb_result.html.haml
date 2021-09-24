@@ -1,5 +1,6 @@
-.col
-  .row.mx-3.poster
+.col.movie-container
+  -# poster
+  .row.mx-3.poster.poster-wrapper
     - if !tmdb_result.poster_path.to_s.empty?
       .card-poster.my-2
         %img.poster{:src => 'https://image.tmdb.org/t/p/w300' + tmdb_result.poster_path.to_s}
@@ -12,9 +13,11 @@
         %a.btn.black{:href => '#', :alt=>'add to movie list'}
           %i.fas.fa-plus.my-1
 
-  .row.mx-3
+  -# title
+  .row.mx-3.title-wrapper
     %a.movie-title{:href=>"#"}
       %h5.mb-0= tmdb_result.title
 
-  .row.me-3.ms-4.my-2
+  -# release date
+  .row.me-3.ms-4.my-2.date-wrapper
     %p.release-date.mb-0= tmdb_result.release_date
