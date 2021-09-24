@@ -50,7 +50,7 @@ var MovieRatingFilter = {
         checkbox_container.insertAfter('#rating-filter')
         $('#filter_G').change(MovieRatingFilter.filter_G)
         $('#filter_PG').change(MovieRatingFilter.filter_PG)
-        $('filter_PG_13').change(MovieRatingFilter.filter_PG_13)
+        $('#filter_PG_13').change(MovieRatingFilter.filter_PG_13)
         $('#filter_R').change(MovieRatingFilter.filter_R)
         $('#filter_NC_17').change(MovieRatingFilter.filter_NC_17)
     }
