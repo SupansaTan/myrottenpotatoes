@@ -23,11 +23,22 @@ describe MoviesController do
       end
 
       it 'makes the TMDb search results available to that template' do
-        expect(assigns(:movies))==(@fake_results)
+        expect(assigns(:movies)).to eq(@fake_results)
       end
     end
   end
+  describe 'create movie' do
+    before :each do
+      @movie_attr = {movie: {:title => 'test',rating: 'R',release_date: '2021-09-22',description: 'description'}}
+    end
+    it "creates new movie" do
+      expect{
+        post :create, params: @movie_attr
+      }.to change(Movie,:count).by(1)
+    end
+    it "redirect to movie page" do
+      post :create, params: @movie_attr
+      expect(response).to redirect_to(Movie.last)
+    end
+  end
 end
-
-
-   
