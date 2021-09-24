@@ -19,6 +19,7 @@
 @import 'variables';
 @import 'index';
 @import 'tmdb';
+@import 'movie_form';
 
 body {
     font-family: $font-stack;
@@ -113,41 +114,6 @@ input[type="submit"] {
     background-color: #80e280;
 }
 
-textarea {
-    width: 30%;
-    font-size: 1.2rem;
-    margin-bottom: .5rem;
-}
-
-label {
-    margin: .5rem 0;
-}
-
-.red.btn {
-    background-color: #f1c4c4;
-}
-
-table#movies {
-    border-collapse: collapse;
-    width: 100%;
-    border-bottom: 2px solid black;
-
-    th {
-        border: 2px solid white;
-        font-weight: bold;
-        background-color: wheat;
-    }
-
-    th, td {
-        padding: 4px;
-        text-align: left;
-    }
-
-    tr:hover {
-        background-color: #ffdb58;
-    }
-}
-
 .message {
     width: fit-content;
     font-size: 1.2rem;
@@ -157,18 +123,11 @@ table#movies {
 
     &#notice {
         color: black;
-        background: $yellow;
+        background: $green;
     }
 
     &#warning {
         color: red;
         background: $light-red;
     }
-}
-
-form label {
-    display: block;
-    line-height: 25px;
-    font-weight: bold;
-    color: maroon;
 }

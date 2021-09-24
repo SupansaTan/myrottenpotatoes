@@ -1,10 +1,13 @@
-%h2 Edit Existing Movie
+%h2 Edit Movie : "#{@movie.title}"
 
 = form_tag movie_path(@movie), :method => :put do
   = render :partial => 'movie_form'
 
+  .row.gap-3
+    %a.btn.red.col-2.ms-auto{:href => movies_path(@movie)} 
+      %i.fas.fa-times.me-1
+      Cancel
 
-  .col-9.mx-auto
-    .row.gap-3
-      %a.button.col-2{:href => movies_path, :class => 'red btn'} Cancel
-      %a.button.col-3{:href =>"#", :class => 'green btn'} Update Movie Info
+    %button.btn.green.col-2.me-auto{:type =>'submit'}
+      %i.far.fa-save.me-1
+      Update Movie Info

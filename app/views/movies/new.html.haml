@@ -3,7 +3,11 @@
 = form_tag '/movies', :method => :post do
   = render :partial => 'movie_form'
 
-  .col-8.mx-auto
-    .row.gap-3
-      %a.button.col-2{:href => movies_path, :class => 'red btn'} Cancel
-      %a.button.col-2{:href =>"#", :class => 'green btn'} Save Changes
+  .row.gap-3
+    %a.btn.red.col-2.ms-auto{:href => movies_path} 
+      %i.fas.fa-times.me-1
+      Cancel
+
+    %button.btn.green.col-2.me-auto{:type =>'submit'}
+      %i.far.fa-save.me-1
+      Save Changes
