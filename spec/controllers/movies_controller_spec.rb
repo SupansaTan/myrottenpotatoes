@@ -41,4 +41,24 @@ describe MoviesController do
       expect(response).to redirect_to(Movie.last)
     end
   end
+  describe 'delete' do
+    before :each do
+      @fact_movie = FactoryGirl.create(:movie)
+    end
+    it "delete movie" do
+      expect{
+        delete :destroy, params: {id: @fact_movie.id}     
+      }.to change(Movie,:count).by(-1)
+    end
+    it "redirect to index page" do
+      delete :destroy, params: {id: @fact_movie.id}   
+      expect(response).to redirect_to(:action => 'index') 
+    end
+  end
 end
+
+
+
+
+
+
