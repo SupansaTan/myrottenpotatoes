@@ -9,8 +9,8 @@
     Include:
     - @all_ratings.each do |rating|
       = rating
-      = check_box_tag "ratings[#{rating}]", "1", (@ratings ? @ratings.include?(rating) : true)
-    = submit_tag 'Refresh', id: 'ratings_submit'
+      = check_box_tag "ratings[#{rating}]", 1, @selected_ratings.include?(rating), :id => "ratings_#{rating}"
+    = submit_tag 'Refresh', :id => 'ratings_submit'
 
 .row.row-cols-4.g-4.mt-2
-  = render :partial => 'movie', :collection => @sort_movies
+  = render :partial => 'movie', :collection => @movies
