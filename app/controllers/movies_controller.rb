@@ -8,11 +8,11 @@ class MoviesController < ApplicationController
         begin
             id = params[:id]
             @movie = Movie.find(id)
-            render(:partial => 'movie', :object => @movie) if request.xhr?
         rescue ActiveRecord::RecordNotFound => e
             flash[:warning] = "No movie with the given ID could be found."
             return redirect_to movies_path
         end
+        render(:partial => 'movie_modal', :object => @movie) if request.xhr?
     end
 
     def new
@@ -77,14 +77,14 @@ class MoviesController < ApplicationController
 
         @movie = Movie.new({
             :title => movie["title"],
-            :rating => "",
+            :rating => "G",
             :release_date => movie["release_date"],
             :description => movie["overview"],
             :poster_path => movie["poster_path"]
         })
-
+        
         if @movie.save
-            flash[:notice] = "#{@movie.title} was successfully created."
+            flash[:notice] = "'#{@movie.title}' was successfully created."
             redirect_to movies_path(@movie)
         end
     end

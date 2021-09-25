@@ -18,7 +18,7 @@
 
         .collapse.navbar-collapse{:id => 'navbar'}
           %ul.navbar-nav.col
-            = form_tag movies_search_tmdb_path, :id=>'search-in-tmdb', :class=>'m-0 row w-100' do
+            = form_tag({:controller=>'movies', :action=>'search_tmdb'}, :method=>'get', :id=>'search-in-tmdb', :class=>'m-0 row w-100') do
               .search-group.col-6.mx-auto
                 %a{:href => '#', :onclick => "document.getElementById('search-in-tmdb').submit()"}
                   %i.fa.fa-search
