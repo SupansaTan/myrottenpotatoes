@@ -3,12 +3,12 @@
     %li.nav-item.dropdown
       %a.nav-link.dropdown-toggle{:href=>'#', :id=>'user-dropdown', :role=>'button', 
         'data-bs-toggle'=>'dropdown', 'aria-expanded'=>'false'}
-        Welcome!, #{@current_user.name}
+        Welcome!, #{@current_user[:name]}
 
       %ul.dropdown-menu{'aria-labelledby'=>'user-dropdown'}
         %li
-          %a.dropdown-item{:href => logout_path} Log Out
+          %a.dropdown-item{:href => destroy_user_session_path} Log Out
 
   - else
     %li.nav-item
-      %a.nav-link{:href=> '/auth/twitter'} Log in with Facebook
+      %a.nav-link{:href=> user_facebook_omniauth_authorize_path} Log in with Facebook
