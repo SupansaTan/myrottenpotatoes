@@ -8,11 +8,11 @@ class MoviesController < ApplicationController
         begin
             id = params[:id]
             @movie = Movie.find(id)
-
         rescue ActiveRecord::RecordNotFound => e
             flash[:warning] = "No movie with the given ID could be found."
             return redirect_to movies_path
         end
+        render(:partial => 'movie_modal', :object => @movie) if request.xhr?
     end
 
     def new
@@ -66,7 +66,7 @@ class MoviesController < ApplicationController
         if !@movies.empty?   # exist in tmdb
             render 'tmdb'
         else
-            flash[:warning] = "'#{@search_terms}' not found in TMDb"
+            flash[:warning] = "Sorry, no results found for '#{@search_terms}'"
             redirect_to movies_path
         end
     end
@@ -77,14 +77,14 @@ class MoviesController < ApplicationController
 
         @movie = Movie.new({
             :title => movie["title"],
-            :rating => "",
+            :rating => "G",
             :release_date => movie["release_date"],
             :description => movie["overview"],
             :poster_path => movie["poster_path"]
         })
-
+        
         if @movie.save
-            flash[:notice] = "#{@movie.title} was successfully created."
+            flash[:notice] = "'#{@movie.title}' was successfully created."
             redirect_to movies_path(@movie)
         end
     end

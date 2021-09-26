@@ -1,19 +1,44 @@
 - unless @movie.errors.empty?
-  #warning
+  #warning.message.mx-auto
     Errors prevented this movie from being #{controller.action_name}d:
     %ul
       - @movie.errors.full_messages.each do |error|
         %li= error
-        
-= label :movie, :title, 'Title'
-= text_field :movie, 'title'
 
-= label :movie, :rating, 'Rating'
-= select :movie, :rating, ['G', 'PG', 'PG-13', 'R', 'NC-17']
+.form-container.col-9.mx-auto.p-4.my-4
+  -# title
+  .row.mb-2
+    .col-2.align-items-center.d-flex
+      = label :movie, :title, 'Title', :class => 'form-label mb-0 fw-bold'
+    .col
+      = text_field :movie, 'title', :class => 'form-control'
 
-= label :movie, :release_date, 'Released On'
-= date_select :movie, :release_date, :start_year => Date.today.year, :end_year => 1900 
+  -# rating picker
+  .row.mb-2
+    .col-2.align-items-center.d-flex
+      = label :movie, :rating, 'Rating', :class => 'form-label mb-0 fw-bold'
+    .col
+      .input-group
+        %select.form-select{:name=>"movie[rating]", :id=>'movie_rating'}
+          %option{:value => "G", :selected => @movie.rating == "G"}= "G"
+          %option{:value => "PG", :selected => @movie.rating == "PG"}= "PG"
+          %option{:value => "PG-13", :selected => @movie.rating == "PG-13"}= "PG-13"
+          %option{:value => "R", :selected => @movie.rating == "R"}= "R"
+          %option{:value => "NC-17", :selected => @movie.rating == "NC-17"}= "NC-17"
 
-= label :movie, :description, 'Description'
-= text_area :movie, :description, :rows => 4
+  -# date picker
+  .row.mb-2
+    .col-2.align-items-center.d-flex
+      = label :movie, :release_date, 'Released On', :class => 'form-label mb-0 fw-bold'
+    .col
+      .input-group
+        = date_select :movie, :release_date, {:order => [:day, :month, :year], 
+          :start_year => Date.today.year, :end_year => 1900}, {:class=>'form-select'}
 
+  -# description
+  .row.mb-2
+    .col-2
+      = label :movie, :description, 'Description', :class => 'form-label mb-0 fw-bold'
+    .col
+      %textarea.form-control{:id=>'movie_description', :name=>'movie[description]', 
+        :rows => 6}= @movie.description

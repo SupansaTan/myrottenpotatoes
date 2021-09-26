@@ -2,6 +2,12 @@
 
 = form_tag '/movies', :method => :post do
   = render :partial => 'movie_form'
-  = submit_tag 'Save Changes', :class => 'd-block'
 
-= link_to 'Cancel', movies_path, :class => "btn my-2"
+  .row.gap-3
+    %a.btn.red.col-2.ms-auto{:href => movies_path} 
+      %i.fas.fa-times.me-1
+      Cancel
+
+    %button.btn.green.col-2.me-auto{:type =>'submit'}
+      %i.far.fa-save.me-1
+      Save Changes
