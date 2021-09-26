@@ -12,8 +12,10 @@ import Rails from "@rails/ujs"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-import "jquery"
-import './bootstrap_js_files.js' // for bootstrap.js
+import JQuery from 'jquery'
+window.$ = window.JQuery = JQuery
+import "bootstrap"
+
 import "@fortawesome/fontawesome-free/css/all" // font awesome
 
 Rails.start()
