@@ -63,6 +63,8 @@ gem 'haml'
 
 gem "actionpack", ">= 6.1.4.1"
 
+gem "omniauth", "~> 1.9.1"
+
 # Login with twitter
 gem "omniauth-twitter", "~> 1.4.0"
 
@@ -82,3 +84,7 @@ end
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
 
 gem 'jquery-rails'
+
+#facebook login
+gem 'devise'
+gem 'omniauth-facebook' , "~> 6.0.0"

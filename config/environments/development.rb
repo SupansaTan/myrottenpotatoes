@@ -85,4 +85,7 @@ Rails.application.configure do
   # using sass, scss
   config.sass.preferred_syntax = :sass
   config.sass.syntax = :sass
+
+  #facebook login
+  config.action_mailer.default_url_options = { host:'localhost', port:3000}
 end
