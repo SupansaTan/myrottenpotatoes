@@ -41,6 +41,10 @@ a {
         background-color: $light-red;
     }
 
+    &.yellow {
+        background-color: $yellow;
+    }
+
     &.black {
         background-color: black;
     }
@@ -53,6 +57,26 @@ a {
         outline: none;
         box-shadow: 0 0 20px #cfcfcf;
     }
+}
+
+.text {
+    &-yellow {
+        color: $yellow;
+    }
+}
+
+.bg {
+    &-yellow {
+        background-color: $yellow;
+    }
+    
+    &-grey {
+        background-color: $light-grey;
+    }
+}
+
+.rounded {
+    border-radius: 25px !important;
 }
 
 .navbar-dark {
@@ -100,25 +124,11 @@ a {
     }
 }
 
-input:not(input[type="submit"]) {
-    font-family: $font-stack;
-}
-
-input[type="submit"] {
-    color: black;
-    font-weight: bold;
-    padding: .5rem 1rem;
-    border: none;
-    border-radius: 25px;
-    font-family: $font-stack;
-    background-color: #80e280;
-}
-
 .message {
     width: fit-content;
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 25px;
+    border-radius: 15px;
     padding: .5rem 1rem;
 
     &#notice {
