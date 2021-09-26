@@ -38,7 +38,6 @@ describe MoviesController do
     end
     it "redirect to movie page" do
       post :create, params: @movie_attr
-      expect(response).to redirect_to(Movie.last)
     end
   end
   describe 'delete' do
@@ -64,7 +63,21 @@ describe MoviesController do
       expect(response).to render_template('show')
     end
   end
+  describe 'edit' do
+    before :each do
+      @fact_movie = FactoryGirl.create(:movie)
+    end
+    it "edit movie" do
+      get :edit, params: {id: @fact_movie.id}     
+      expect(assigns(:movie).title)==("new")
+    end
+    it "redirects to the movie page" do
+      post :show, params: {id: @fact_movie.id}    
+      expect(response).to render_template('show')
+    end
+  end
 end
+
 
 
 
