@@ -1,13 +1,13 @@
-%main.container
-  %h1= 'Search Results: ' + @search_key
+.row.align-self-center
+  %h2.col.mb-0= 'Search Result for "' + @search_terms + '"'
 
-  %table#movies
-    %thead
-      %tr
-        %th #
-        %th Poster
-        %th Title
-        %th Release Date
+  .col-auto.d-flex.align-items-center
+    %h4.d-inline.mb-0.me-1 Filter by :
+    %a.btn.grey.d-inline.fw-bold.release_date{:href=>"#", :role=>"button", :onclick=>"sort_date()"}
+      Release Date
+      %i#arrow.fas.fa-chevron-down
 
-    %tbody
-      = render :partial => 'tmdb_tbody', :collection => @movies
+.row.row-cols-4.g-4.mt-2
+  = render :partial => 'tmdb_result', :collection => @movies
+
+= javascript_pack_tag 'tmdb_filter'
