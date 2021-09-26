@@ -55,6 +55,15 @@ describe MoviesController do
       expect(response).to redirect_to(:action => 'index') 
     end
   end
+  describe 'show' do
+    before :each do
+      @fact_movie = FactoryGirl.create(:movie)
+    end
+    it "show detail movie page" do
+      post :show, params: {id: @fact_movie.id}     
+      expect(response).to render_template('show')
+    end
+  end
 end
 
 
