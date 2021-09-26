@@ -1,0 +1,30 @@
+#movie-info.modal-dialog.modal-dialog-centered.modal-lg
+  .modal-content
+    .modal-header
+            
+    .modal-body
+      .row.row-cols-2.m-2
+        .col-auto.mx-2
+          - if !@movie.poster_path.to_s.empty?
+            .card-poster.my-2
+              %img.poster{:src => 'https://image.tmdb.org/t/p/w300' + @movie.poster_path.to_s}
+
+          - else 
+            .card-poster.my-2.potatoes
+              = image_tag 'potatoes.svg', :class=>'mx-auto potatoes'
+
+        .col.mx-2
+          %h4= @movie.title
+          %p.fw-bold.d-inline= 'Rating: ' + @movie.rating
+          %p.fw-bold.d-inline= 'Released on: ' + @movie.release_date.strftime('%Y-%m-%d')
+          %h5= 'Description:'
+          %p.mx-2= @movie.description
+			
+        .row
+          .me-auto
+            %p= 'Average Review Point:'
+          
+          .ms-auto
+            %a.btn.yellow{href:edit_movie_path(@movie)}= 'Edit Movie'
+            %a.btn.green{href:'#'}= 'Add Review'
+            %a.btn.red{href:movie_path(@movie), :method => :delete}

@@ -29,8 +29,8 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 group :development, :test do
-  
-
+  gem 'rspec-rails'
+  gem 'rails-controller-testing'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
@@ -44,11 +44,12 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'jasmine-rails' # if you plan to use JavaScript/CoffeeScript
 end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 3.26'
   gem 'selenium-webdriver'
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
@@ -70,14 +71,19 @@ gem "omniauth-twitter", "~> 1.4.0"
 # TMDb
 gem 'themoviedb'
 
-group :test do
-  gem 'cucumber-rails', require: false
-  # database_cleaner is not mandatory, but highly recommended
-  gem 'database_cleaner'
+gem 'factory_girl_rails'
 
+group :test do
+  gem 'cucumber-rails', :require => false
+  gem 'cucumber-rails-training-wheels' # some pre-fabbed step definitions  
+  gem 'database_cleaner' # to clear Cucumber's test database between runs
+  gem 'capybara'         # lets Cucumber pretend to be a web browser
+  gem 'launchy'          # a useful debugging aid for user stories 
 end
 
 gem 'wdm', '>= 0.1.0' if Gem.win_platform?
+
+gem 'jquery-rails'
 
 #facebook login
 gem 'devise'

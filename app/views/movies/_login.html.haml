@@ -1,6 +1,14 @@
 #login
   - if @current_user
-    %p.welcome  Welcome, #{@current_user[:name]}! 
-    %p.logout= button_to 'Sign Out', destroy_user_session_path, method: :delete 
+    %li.nav-item.dropdown
+      %a.nav-link.dropdown-toggle{:href=>'#', :id=>'user-dropdown', :role=>'button', 
+        'data-bs-toggle'=>'dropdown', 'aria-expanded'=>'false'}
+        Welcome!, #{@current_user[:name]}
+
+      %ul.dropdown-menu{'aria-labelledby'=>'user-dropdown'}
+        %li
+          %a.dropdown-item{:href => destroy_user_session_path} Log Out
+
   - else
-    %p.login= button_to 'Sign in with Facebook', user_facebook_omniauth_authorize_path
+    %li.nav-item
+      %a.nav-link{:href=> user_facebook_omniauth_authorize_path} Log in with Facebook

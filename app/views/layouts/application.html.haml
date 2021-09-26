@@ -2,18 +2,36 @@
   %head
     %title RottenPotatoes!
     = javascript_pack_tag 'application'
-    = stylesheet_link_tag "application", media:"all"
+    = stylesheet_link_tag "application"
     = csrf_meta_tags
  
   %body
-    = render :partial=>'login'
-    %h1.title.w-100.d-block
-      = link_to 'RottenPotatoes', movies_path
+    %nav.navbar.navbar-expand-lg.navbar-dark.bg-dark
+      .container-fluid
+        %a.navbar-brand{:href => movies_path}
+          = image_tag "rottenpotatoes-logo.svg", :class=>'mx-2 logo'
+          Rotten Potatoes
 
-    #main
+        %button.navbar-toggler{:type=>'button', 'data-bs-toggle'=>'collapse', 'data-bs-target'=>'#navbar',
+          'aria-controls'=>'navbar', 'aria-expanded'=>'false', 'aria-label'=>'toggle navigation'}
+          %span.navbar-toggler-icon
+
+        .collapse.navbar-collapse{:id => 'navbar'}
+          %ul.navbar-nav.col
+            = form_tag({:controller=>'movies', :action=>'search_tmdb'}, :method=>'get', :id=>'search-in-tmdb', :class=>'m-0 row w-100') do
+              .search-group.col-6.mx-auto
+                %a{:href => '#', :onclick => "document.getElementById('search-in-tmdb').submit()"}
+                  %i.fa.fa-search
+                %input.form-control.search{:type=>'search', :placeholder=>'Search movie in TMDb ...', :name => 'search_terms', :required => true}
+
+          %ul.navbar-nav.ms-auto.col-auto
+            = render :partial=>'login'
+
+    .container.mt-4
       - if flash[:notice]
-        #notice.message= flash[:notice]
+        #notice.message.my-4.mx-auto.px-4= flash[:notice]
       - elsif flash[:warning]
-        #warning.message= flash[:warning]
+        #warning.message.my-4.mx-auto.px-4= flash[:warning]
 
       = yield
+      = javascript_pack_tag 'custom'

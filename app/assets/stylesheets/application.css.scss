@@ -15,51 +15,92 @@
  */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import 'variables';
+@import 'index';
+@import 'tmdb';
+@import 'movie_form';
 
-$font-stack: 'Poppins', Tahoma, Verdana, sans-serif;
-
-html, body {
-    margin: 0;
-    padding: 0;
+body {
     font-family: $font-stack;
 }
 
+a {
+    color: black;
+    text-decoration: none;
+}
+
 .btn {
+    border-radius: 50px;
+
+    &.green {
+        background-color: $green;
+    }
+
+    &.red {
+        background-color: $light-red;
+    }
+
+    &.black {
+        background-color: black;
+    }
+
+    &.grey {
+        background-color: $light-grey;
+    }
+
     &:hover, &:focus {
         outline: none;
         box-shadow: 0 0 20px #cfcfcf;
     }
 }
 
-div#main {
-    margin: 0;
-    padding: 0 20px 20px;
-}
+.navbar-dark {
+    font-weight: 600;
 
-a {
-    background: transparent;
-    color: maroon;
-    text-decoration: none;
-    font-weight: bold;
-}
+    .navbar-brand {
+        color: $yellow;
+        font-size: 1.5rem;
 
-h1 {
-    &.title {
-        margin: 0 0 1em;
-        padding: .5rem;
-        background-color: #ffe5b4;
-        border-bottom: 4px solid #fad99b;
-        font-size: 2em;
-        font-style: normal;
-    
-        a {
-            color: red;
+        &:hover {
+            color: $yellow;
+        }
+
+        img.logo {
+            width: 35px;
+            height: 35px;
+        }
+    }
+
+    .navbar-nav .nav-link {
+        color: $yellow;
+
+        &:hover {
+            color: white;
         }
     }
 }
 
+.search-group {
+    position: relative;
+
+    .fa-search {
+        color: black;
+        font-size: 1.3rem;
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+    }
+
+    .form-control.search {
+        padding: .25rem .5rem .25rem 2.5rem;
+        border: none;
+        border-radius: 50px;
+    }
+}
+
 input:not(input[type="submit"]) {
-    font-size: 1.2rem;
     font-family: $font-stack;
 }
 
@@ -73,55 +114,20 @@ input[type="submit"] {
     background-color: #80e280;
 }
 
-textarea {
-    width: 30%;
+.message {
+    width: fit-content;
     font-size: 1.2rem;
-    margin-bottom: .5rem;
-}
-
-label {
-    margin: .5rem 0;
-}
-
-.btn {
-    border-radius: .5rem;
-}
-
-.red.btn {
-    background-color: #f1c4c4;
-}
-
-table#movies {
-    border-collapse: collapse;
-    width: 100%;
-    border-bottom: 2px solid black;
-
-    th {
-        border: 2px solid white;
-        font-weight: bold;
-        background-color: wheat;
-    }
-
-    th, td {
-        padding: 4px;
-        text-align: left;
-    }
-
-    tr:hover {
-        background-color: #ffdb58;
-    }
-}
-
-#notice, #warning {
-    background: rosybrown;
-    color: white;
-    margin: 1em 0;
-    padding: 4px;
-}
-
-form label {
-    display: block;
-    line-height: 25px;
     font-weight: bold;
-    color: maroon;
+    border-radius: 25px;
+    padding: .5rem 1rem;
+
+    &#notice {
+        color: black;
+        background: $green;
+    }
+
+    &#warning {
+        color: red;
+        background: $light-red;
+    }
 }
