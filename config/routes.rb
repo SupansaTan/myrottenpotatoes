@@ -10,8 +10,5 @@ Rails.application.routes.draw do
   resources :movies
   
   # authentication
-  get  'auth/twitter' => 'sessions#create'
-  post  'auth/:provider/callback' => 'sessions#create'
-  post 'logout' => 'sessions#destroy'
-  get  'auth/failure' => 'sessions#failure'
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
 end
