@@ -1,6 +1,6 @@
 class Review < ActiveRecord::Base
     belongs_to :movie
-    belongs_to :moviegoer
+    belongs_to :user
     attr_protected :moviegoer_id # see text
 
     # review is valid only if it's associated with a movie:
