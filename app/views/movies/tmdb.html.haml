@@ -1,3 +1,6 @@
+- content_for(:head) do
+  = stylesheet_link_tag 'tmdb'
+
 .row.align-self-center
   %h2.col.mb-0= 'Search Result for "' + @search_terms + '"'
 
