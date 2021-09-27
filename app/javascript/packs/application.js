@@ -8,19 +8,20 @@
 // layout file, like app/views/layouts/application.html.erb
 
 import Rails from "@rails/ujs"
-//import Turbolinks from "turbolinks"
+import "@popperjs/core"
+import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
 
 import JQuery from 'jquery'
 window.$ = window.JQuery = JQuery
 import "bootstrap"
 
 import "@fortawesome/fontawesome-free/css/all" // font awesome
-
-Rails.start()
-// Turbolinks.start()
-ActiveStorage.start()
 
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)

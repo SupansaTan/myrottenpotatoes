@@ -3,7 +3,7 @@
   .row.mx-3.poster.poster-wrapper
     - if !tmdb_result.poster_path.to_s.empty?
       .card-poster.my-2
-        %img.poster{:src => 'https://image.tmdb.org/t/p/w300' + tmdb_result.poster_path.to_s}
+        %img.poster.shadow{:src => 'https://image.tmdb.org/t/p/w300' + tmdb_result.poster_path.to_s}
         = form_tag({:controller=>'movies', :action=>'create_from_tmdb'}, :method=>'post', :id=>tmdb_result.id) do
           %input{:type=>'hidden', :name=>'tmdb_id', :value=> tmdb_result.id}
           %a.btn.black{:href => '#', :alt=>'add to movie list', 
@@ -11,11 +11,11 @@
             %i.fas.fa-plus.my-1
 
     - else 
-      .card-poster.my-2.potatoes
+      .card-poster.my-2.potatoes.shadow
         = image_tag 'potatoes.svg', :class=>'mx-auto potatoes'
         = form_tag({:controller=>'movies', :action=>'create_from_tmdb'}, :method=>'post', :id=>tmdb_result.id) do
           %input{:type=>'hidden', :name=>'tmdb_id', :value=> tmdb_result.id}
-          %a.btn.black{:href => '#', :alt=>'add to movie list', :onclick=>"document.getElementById('#{tmdb_result.id}').submit()"}
+          %a.btn.black{:href => '#', :alt=>'add to movie list', :onclick=>"document.getElementById('#{tmdb_result.id}').submit(); return false;"}
             %i.fas.fa-plus.my-1
 
   -# title

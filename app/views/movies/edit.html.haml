@@ -1,3 +1,6 @@
+- content_for(:head) do
+  = stylesheet_link_tag 'movie_form'
+
 %h2 Edit Movie : "#{@movie.title}"
 
 = form_tag movie_path(@movie), :method => :put do
