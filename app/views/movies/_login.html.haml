@@ -3,7 +3,7 @@
     %a.nav-link.dropdown-toggle{:href=>'#', :role=>'button', :id=>'avartar',
       'data-bs-toggle'=>'dropdown', 'aria-expanded'=>'false'}
       Welcome!, #{@current_user[:name]}
-    %ul.dropdown-menu.dropdown-menu-end{'aria-labelledby'=>'avartar'}
+    %ul.dropdown-menu.dropdown-menu-end.border-0.shadow{'aria-labelledby'=>'avartar'}
       %li
         %a.dropdown-item{:href => destroy_user_session_path}= 'Log Out'
 
