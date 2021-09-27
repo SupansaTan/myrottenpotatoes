@@ -1,3 +1,6 @@
+- content_for(:head) do
+  = stylesheet_link_tag 'movie_form'
+
 %h2 Create New Movie
 
 = form_tag '/movies', :method => :post do
