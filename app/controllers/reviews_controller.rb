@@ -1,11 +1,10 @@
 class ReviewsController < ApplicationController
-    before_filter :has_user_and_movie, :only => [:new, :create]
+    before_action :has_user_and_movie, :only => [:new, :create]
 
     protected
     def has_user_and_movie
       unless @current_user
         flash[:warning] = 'You must be logged in to create a review.'
-        redirect_to user_facebook_omniauth_authorize_path
       end
 
       unless (@movie = Movie.find_by_id(params[:movie_id]))
@@ -20,7 +19,7 @@ class ReviewsController < ApplicationController
     end
 
     def create
-      @current_user.reviews << @movie.reviews.build(params[:review])
+      @current_user.reviews << @movie.reviews.build(review_params)
       redirect_to movie_path(@movie)
     end
 
@@ -45,5 +44,4 @@ class ReviewsController < ApplicationController
     def review_params
       params.require(:review).permit(:potatoes)
     end
-    
 end
