@@ -42,3 +42,4 @@ yarn-debug.log*
 .tmdb_key.rb
 
 .DS_store
+.vercel
