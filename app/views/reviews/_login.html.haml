@@ -1,0 +1,12 @@
+- if @current_user
+  %li.nav-item.dropdown
+    %a.nav-link.dropdown-toggle{:href=>'#', :role=>'button', :id=>'avartar',
+      'data-bs-toggle'=>'dropdown', 'aria-expanded'=>'false'}
+      Welcome!, #{@current_user[:name]}
+    %ul.dropdown-menu.dropdown-menu-end.border-0.shadow{'aria-labelledby'=>'avartar'}
+      %li
+        %a.dropdown-item{:href => destroy_user_session_path}= 'Log Out'
+
+- else
+  %li.nav-item
+    %a.nav-link{:href=> user_facebook_omniauth_authorize_path}= 'Log in with Facebook'

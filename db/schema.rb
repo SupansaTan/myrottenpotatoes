@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_21_170311) do
+ActiveRecord::Schema.define(version: 2021_09_28_160224) do
 
   create_table "movies", force: :cascade do |t|
     t.string "title"
@@ -24,10 +24,12 @@ ActiveRecord::Schema.define(version: 2021_09_21_170311) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.integer "potatoes"
-    t.text "comments"
-    t.integer "moviegoer_id"
+    t.string "user_uid"
     t.integer "movie_id"
+    t.integer "potatoes"
+    t.text "comment"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

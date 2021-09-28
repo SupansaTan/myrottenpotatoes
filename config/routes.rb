@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   get '/movies/search_tmdb' => 'movies#search_tmdb'
   post '/movies/create_from_tmdb' => 'movies#create_from_tmdb', :as => :create_from_tmdb
 
-  resources :movies
+  resources :movies do
+    resources :reviews
+  end
   
   # authentication
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks"}
