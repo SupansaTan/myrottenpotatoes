@@ -1,13 +1,8 @@
 class ReviewsController < ApplicationController
-    before_filter :has_user_and_movie, :only => [:new, :create]
+    before_action :has_movie, :only => [:new, :create]
 
     protected
-    def has_user_and_movie
-      unless @current_user
-        flash[:warning] = 'You must be logged in to create a review.'
-        redirect_to user_facebook_omniauth_authorize_path
-      end
-
+    def has_movie
       unless (@movie = Movie.find_by_id(params[:movie_id]))
         flash[:warning] = 'Review must be for an existing movie.'
         redirect_to movies_path

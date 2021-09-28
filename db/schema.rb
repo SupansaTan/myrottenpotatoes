@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_09_21_170311) do
   create_table "reviews", force: :cascade do |t|
     t.integer "potatoes"
     t.text "comments"
-    t.integer "moviegoer_id"
+    t.integer "user_id"
     t.integer "movie_id"
   end
 

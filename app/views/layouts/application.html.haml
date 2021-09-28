@@ -26,7 +26,7 @@
                 %input.form-control.search{:type=>'search', :placeholder=>'Search movie in TMDb ...', :name => 'search_terms', :required => true}
 
           %ul.navbar-nav.ms-auto.col-auto
-            = render :partial=>'login'
+            = render :partial=>'movies/login'
 
     .container.mt-4
       - if flash[:notice]
