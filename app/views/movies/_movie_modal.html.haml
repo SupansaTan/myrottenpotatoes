@@ -30,9 +30,16 @@
           %a.btn.yellow{href:edit_movie_path(@movie)}
             %i.fas.fa-pen
             Edit Movie
-          %a.btn.green{href: new_movie_review_path(@movie)}
-            %i.fas.fa-plus
-            Add Review
+
+          -if Review.find_by(user_uid:@current_user.uid, movie_id:@movie.id)
+            %a.btn.green{href: edit_movie_review_path(@movie)}
+              %i.fas.fa-pen
+              Edit My Review
+          - else
+            %a.btn.green{href: new_movie_review_path(@movie)}
+              %i.fas.fa-plus
+              Add Review
+
           %a.btn.red{href:movie_path(@movie), 'data-method' => :delete}
             %i.fas.fa-trash
             Delete

@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :has_user_and_movie , :only => [:new, :create]
+    before_action :has_user_and_movie , :only => [:new, :create, :edit, :update]
 
     public
     def new
@@ -11,10 +11,10 @@ class ReviewsController < ApplicationController
       @review.movie_id = @movie.id
       @review.user_uid = @current_user.uid
       if @review.save(validate: false)
-        flash[:notice] = "Review was successfully "
+        flash[:notice] = "Review was successfully added"
         redirect_to movies_path
       else
-        flash[:notice] = "Try again"
+        flash[:warning] = "Try again"
         render 'new'
       end
     end
@@ -27,8 +27,9 @@ class ReviewsController < ApplicationController
     def update
       @movie = Movie.find params[:movie_id]
       @review = Review.find params[:id]
+      @review.assign_attributes(review_params) 
 
-      if @review.update(review_params) 
+      if @review.save(validate: false)
         flash[:notice] = "Review was successfully updated."
         redirect_to movie_path(@movie)
       else
@@ -37,16 +38,16 @@ class ReviewsController < ApplicationController
     end
 
     private
-    def review_params
-      params.require(:review).permit(:potatoes, :comment)
-    end
-
-    def has_user_and_movie
-      @movie = Movie.find(params[:movie_id])
-      unless @current_user
-        flash[:notice] = "Log in before review"
-        redirect_to movies_path
+      def review_params
+        params.require(:review).permit(:potatoes, :comment)
       end
-    end
+
+      def has_user_and_movie
+        @movie = Movie.find(params[:movie_id])
+        unless @current_user
+          flash[:warning] = "Login before review"
+          redirect_to movies_path
+        end
+      end
     
 end

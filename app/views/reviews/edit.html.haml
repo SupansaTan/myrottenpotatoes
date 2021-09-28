@@ -4,4 +4,8 @@
 = form_tag movie_review_path(@movie, @review), :method => :put  do
   %label How many potatoes:
   = select_tag 'review[potatoes]', options_for_select(1..5)
+  %br
+  %label Comment:
+  = text_field :review, 'comment'
+  %br
   = submit_tag 'Edit Review'
