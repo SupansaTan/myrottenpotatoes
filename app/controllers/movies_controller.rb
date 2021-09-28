@@ -1,4 +1,7 @@
 class MoviesController < ApplicationController
+
+    before_action :login?, :only => [:new, :create, :edit, :update, :destroy, :search_tmdb]
+
     def index
         movies = Movie.all
         @sort_movies = movies.sort_by(&:title)
@@ -13,6 +16,7 @@ class MoviesController < ApplicationController
             return redirect_to movies_path
         end
         render(:partial => 'movie_modal', :object => @movie) if request.xhr?
+
     end
 
     def new
@@ -94,4 +98,11 @@ class MoviesController < ApplicationController
             params.require(:movie).permit(:title, :rating, :release_date, :description)
         end
 
+        def login?
+            unless @current_user
+              flash[:warning] = "Please Login"
+              redirect_to movies_path
+            end
+        end
+        
 end
