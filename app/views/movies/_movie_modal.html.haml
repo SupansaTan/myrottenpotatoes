@@ -30,7 +30,7 @@
           %a.btn.yellow{href:edit_movie_path(@movie)}
             %i.fas.fa-pen
             Edit Movie
-          %a.btn.green{href:new_movie_review_path(movie.id)}
+          %a.btn.green{href:new_movie_review_path(@movie)}
             %i.fas.fa-plus
             Add Review
           %a.btn.red{href:movie_path(@movie), 'data-method' => :delete}
