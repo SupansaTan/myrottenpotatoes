@@ -88,7 +88,8 @@ gem 'jquery-rails'
 #facebook login
 gem 'devise'
 gem 'omniauth-facebook' , "~> 6.0.0"
-
 gem 'bootstrap', '~> 5.1.0'
 
 gem 'popper_js'
+
+gem 'pg', '~> 1.2', '>= 1.2.3'
