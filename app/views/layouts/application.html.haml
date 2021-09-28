@@ -1,6 +1,7 @@
 %html
   %head
     %title RottenPotatoes!
+    = favicon_link_tag 'rottenpotatoes-logo.svg'
     = javascript_pack_tag 'application', 'data-turbolinks-track' => true
     = stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track' => true
     = yield(:head)
