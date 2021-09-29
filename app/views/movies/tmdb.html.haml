@@ -13,4 +13,4 @@
 .row.row-cols-4.g-4.mt-2
   = render :partial => 'tmdb_result', :collection => @movies
 
-= javascript_pack_tag 'tmdb_filter'
+= javascript_pack_tag 'tmdb_filter', 'data-turbolinks-track' => false
