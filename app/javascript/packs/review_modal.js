@@ -26,10 +26,10 @@ var ReviewPopup = {
 };
 
 $(ReviewPopup.setup);
-$(document).on('click', 'input[name="potatoes-score"]', highlightPotatoes);
+$(document).on('click', 'input[name="review[potatoes]"]', highlightPotatoes);
 
 function highlightPotatoes() {
-  let vote = $('input[name="potatoes-score"]:checked').val()
+  let vote = $('input[name="review[potatoes]"]:checked').val()
   
   for(let i=1; i<6; i++) {
     if(i <= vote) {
