@@ -88,7 +88,7 @@ class MoviesController < ApplicationController
 
         @movie = Movie.new({
             :title => movie["title"],
-            :rating => "G",
+            :rating => nil,
             :release_date => movie["release_date"],
             :description => movie["overview"],
             :poster_path => movie["poster_path"]
@@ -96,7 +96,7 @@ class MoviesController < ApplicationController
         
         if @movie.save
             flash[:notice] = "'#{@movie.title}' was successfully created."
-            redirect_to movies_path(@movie)
+            redirect_to movie_path(@movie)
         end
     end
 

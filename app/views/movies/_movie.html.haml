@@ -32,6 +32,7 @@
   .row.me-3.ms-4.my-2
     %p.release-date.mb-0= movie.release_date.strftime('%Y-%m-%d')
 
-  .row.me-3.ms-4.my-2.rating
-    %p.d-inline.rating.px-0.ps-2.mb-0 Rating:
-    %p.d-inline.rating.ps-1.pe-2.mb-0= movie.rating
+  -if movie.rating
+    .row.me-3.ms-4.my-2.rating
+      %p.d-inline.rating.px-0.ps-2.mb-0 Rating:
+      %p.d-inline.rating.ps-1.pe-2.mb-0= movie.rating

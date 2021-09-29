@@ -12,10 +12,12 @@
     .col.mx-2.bg-grey.rounded.p-3
       %h4.text-center= @movie.title
       .d-flex.justify-content-center
-        %p.fw-bold.d-inline.bg-yellow.px-2.m-1.rounded.shadow-sm= 'Rating: ' + @movie.rating
+        -if @movie.rating
+          %p.fw-bold.d-inline.bg-yellow.px-2.m-1.rounded.shadow-sm= 'Rating: ' + @movie.rating
         %p.fw-bold.d-inline.bg-black.text-yellow.px-2.m-1.rounded.shadow-sm= 'Released on: ' + @movie.release_date.strftime('%Y-%m-%d')
-      %h5= 'Description:'
-      %p.mx-3= @movie.description
+      -if @movie.description
+        %h5= 'Description:'
+        %p.mx-3= @movie.description
 			
   .row.m-2
     .col.me-auto.d-flex.align-items-center
