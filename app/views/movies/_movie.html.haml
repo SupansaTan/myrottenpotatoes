@@ -4,16 +4,26 @@
     - if !movie.poster_path.to_s.empty?
       .card-poster.my-2
         %img.poster.shadow{:src => 'https://image.tmdb.org/t/p/w300' + movie.poster_path.to_s}
-        %a.btn.green.add-review{:url => new_movie_review_path(movie)}
-          %i.fas.fa-plus.me-1
-          Add Review
+        -if Review.find_by(user_id:1, movie_id:movie.id)
+          %a.btn.yellow.add-review{url:edit_movie_review_path(movie, :id=>movie.id)}
+            %i.fas.fa-pen
+            Edit my review
+        -else
+          %a.btn.green.add-review{url:new_movie_review_path(movie, :id=>movie.id)}
+            %i.fas.fa-plus
+            Add Review
 
     - else 
       .card-poster.my-2.potatoes.shadow
         = image_tag 'potatoes.svg', :class=>'mx-auto potatoes'
-        %a.btn.green.add-review{:url => new_movie_review_path(movie)}
-          %i.fas.fa-plus.me-1
-          Add Review
+        -if Review.find_by(user_id:1, movie_id:movie.id)
+          %a.btn.yellow.add-review{url:edit_movie_review_path(movie, :id=>movie.id)}
+            %i.fas.fa-pen
+            Edit my review
+        -else
+          %a.btn.green.add-review{url:new_movie_review_path(movie, :id=>movie.id)}
+            %i.fas.fa-plus
+            Add Review
 
   .row.mx-3
     %a.movie-title{:url=>movie_path(movie)}
