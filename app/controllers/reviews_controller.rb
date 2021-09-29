@@ -16,6 +16,7 @@ class ReviewsController < ApplicationController
     public
     def new
       @review = @movie.reviews.build
+      render(:partial => 'review_modal', :locals => {:movie => @movie, :review => @review}) if request.xhr?
     end
 
     def create

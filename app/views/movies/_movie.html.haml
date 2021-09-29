@@ -4,14 +4,14 @@
     - if !movie.poster_path.to_s.empty?
       .card-poster.my-2
         %img.poster.shadow{:src => 'https://image.tmdb.org/t/p/w300' + movie.poster_path.to_s}
-        %a.btn.green{:href => new_movie_review_path(movie.id)}
+        %a.btn.green.add-review{:url => new_movie_review_path(movie.id)}
           %i.fas.fa-plus.me-1
           Add Review
 
     - else 
       .card-poster.my-2.potatoes.shadow
         = image_tag 'potatoes.svg', :class=>'mx-auto potatoes'
-        %a.btn.green{:href => new_movie_review_path(movie.id)}
+        %a.btn.green.add-review{:url => new_movie_review_path(movie.id)}
           %i.fas.fa-plus.me-1
           Add Review
 

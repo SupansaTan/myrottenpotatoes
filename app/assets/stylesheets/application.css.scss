@@ -137,3 +137,30 @@ a {
         background: $light-red;
     }
 }
+
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    & + img {
+        cursor: pointer;
+    }
+
+    &:checked + img, &.highlight + img {
+        filter: drop-shadow(3px 0 0px saddlebrown) drop-shadow(0 3px 0 saddlebrown) 
+        drop-shadow(-3px 0 0px saddlebrown) drop-shadow(0 -3px 0 saddlebrown);
+    }
+}
+
+.potatoes-radio-group {
+    img {
+        width: 50px;
+        height: auto;
+
+        &.not-selected {
+            opacity: 0.5;
+        }
+    }
+}
