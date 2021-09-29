@@ -1,5 +1,6 @@
 class Movie < ActiveRecord::Base
   has_many :reviews
+  has_many :users, :through => :reviews
   
   def movie_params
     params.require(:movie).permit(:title, :rating, :description, :release_date, :poster_path)
