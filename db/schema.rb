@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_09_21_170311) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "movies", force: :cascade do |t|
     t.string "title"
     t.string "rating"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_09_21_170311) do
     t.string "director"
   end
 
-  create_table "reviews", force: :cascade do |t|
+  create_table "reviews", id: :serial, force: :cascade do |t|
     t.integer "potatoes"
     t.text "comments"
     t.integer "user_id"

@@ -335,7 +335,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     sys-uname (1.2.2)
       ffi (~> 1.1)
     temple (0.8.2)
@@ -407,7 +406,6 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
-  sqlite3 (~> 1.4)
   themoviedb
   turbolinks (~> 5)
   tzinfo-data
@@ -419,4 +417,4 @@ RUBY VERSION
    ruby 2.7.4p191
 
 BUNDLED WITH
-   2.2.27
+   2.2.28
