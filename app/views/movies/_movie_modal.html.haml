@@ -33,11 +33,11 @@
 
           -# if login part complete change user_id:1 to user_id:@current_uesr.id ##########
           -if Review.find_by(user_id:1, movie_id:@movie.id)
-            %a.btn.green{href:edit_movie_review_path(@movie)}
+            %a.btn.green.add-review{url:edit_movie_review_path(@movie)}
               %i.fas.fa-pen
               Edit my review
           -else
-            %a.btn.green{href:new_movie_review_path(@movie)}
+            %a.btn.green.add-review{url:new_movie_review_path(@movie)}
               %i.fas.fa-plus
               Add Review
 

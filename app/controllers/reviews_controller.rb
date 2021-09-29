@@ -18,6 +18,7 @@ class ReviewsController < ApplicationController
       @movie = Movie.find(params[:movie_id])
       @review ||= @movie.reviews.new
       @review = @review || @movie.reviews.new
+      render(:partial => 'review_modal', :locals => {:movie => @movie, :review => @review}) if request.xhr?
     end
 
     def create

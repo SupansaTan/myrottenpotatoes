@@ -16,6 +16,8 @@
   = render :partial => 'movie', :collection => @sort_movies
 
 %div{:id=>"movie-info-container", :class=>"modal"}
+%div{:id=>"review-modal-container", :class=>"modal"}
 
-= javascript_pack_tag 'movie_modal'
-= javascript_pack_tag 'movie_rating_filter'
+= javascript_pack_tag 'movie_modal', 'data-turbolinks-track' => false
+= javascript_pack_tag 'movie_rating_filter', 'data-turbolinks-track' => false
+= javascript_pack_tag 'review_modal', 'data-turbolinks-track' => false
