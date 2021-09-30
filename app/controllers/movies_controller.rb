@@ -19,6 +19,7 @@ class MoviesController < ApplicationController
         begin
             id = params[:id]
             @movie = Movie.find(id)
+            @average_review = Movie.get_average_review(id)
         rescue ActiveRecord::RecordNotFound => e
             flash[:warning] = "No movie with the given ID could be found."
             return redirect_to movies_path

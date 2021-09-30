@@ -37,6 +37,20 @@ class Movie < ActiveRecord::Base
       map(&:capitalize).join(' ')
   end
 
+  def self.get_average_review(id)
+    movie = Movie.find(id)
+    average = 0
+
+    if movie.reviews.size > 0
+      movie.reviews.each{ |review|
+        average += review.potatoes
+      }
+      return average /= movie.reviews.size
+    else
+      return 'This movie has not been reviewed'
+    end
+  end
+
   class Movie::InvalidKeyError < StandardError; end
 
   def self.find_in_tmdb(string)
