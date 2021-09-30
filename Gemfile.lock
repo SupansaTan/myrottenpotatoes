@@ -241,6 +241,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    pg (1.2.3)
     phantomjs (2.1.1.0)
     popper_js (2.9.3)
     public_suffix (4.0.6)
@@ -393,6 +394,7 @@ DEPENDENCIES
   omniauth (~> 1.9.1)
   omniauth-facebook (~> 6.0.0)
   omniauth-twitter (~> 1.4.0)
+  pg
   popper_js
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -402,7 +404,7 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
-  sqlite3 (~> 1.4)
+  sqlite3
   themoviedb
   tzinfo-data
   web-console (>= 4.1.0)
