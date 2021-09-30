@@ -4,16 +4,28 @@
     - if !movie.poster_path.to_s.empty?
       .card-poster.my-2
         %img.poster.shadow{:src => 'https://image.tmdb.org/t/p/w300' + movie.poster_path.to_s}
-        %a.btn.green.add-review{:url => new_movie_review_path(movie)}
-          %i.fas.fa-plus.me-1
-          Add Review
+        -if @current_user
+          -if Review.find_by(user_id:@current_user.id, movie_id:movie.id)
+            %a.btn.yellow.add-review{url:edit_movie_review_path(movie, :id=>movie.id)}
+              %i.fas.fa-pen
+              Edit my review
+          -else
+            %a.btn.green.add-review{url:new_movie_review_path(movie, :id=>movie.id)}
+              %i.fas.fa-plus
+              Add Review
 
     - else 
       .card-poster.my-2.potatoes.shadow
         = image_tag 'potatoes.svg', :class=>'mx-auto potatoes'
-        %a.btn.green.add-review{:url => new_movie_review_path(movie)}
-          %i.fas.fa-plus.me-1
-          Add Review
+        -if @current_user
+          -if Review.find_by(user_id:@current_user.id, movie_id:movie.id)
+            %a.btn.yellow.add-review{url:edit_movie_review_path(movie, :id=>movie.id)}
+              %i.fas.fa-pen
+              Edit my review
+          -else
+            %a.btn.green.add-review{url:new_movie_review_path(movie, :id=>movie.id)}
+              %i.fas.fa-plus
+              Add Review
 
   .row.mx-3
     %a.movie-title{:url=>movie_path(movie)}
@@ -22,6 +34,7 @@
   .row.me-3.ms-4.my-2
     %p.release-date.mb-0= movie.release_date.strftime('%Y-%m-%d')
 
-  .row.me-3.ms-4.my-2.rating
-    %p.d-inline.rating.px-0.ps-2.mb-0 Rating:
-    %p.d-inline.rating.ps-1.pe-2.mb-0= movie.rating
+  -if movie.rating
+    .row.me-3.ms-4.my-2.rating
+      %p.d-inline.rating.px-0.ps-2.mb-0 Rating:
+      %p.d-inline.rating.ps-1.pe-2.mb-0= movie.rating

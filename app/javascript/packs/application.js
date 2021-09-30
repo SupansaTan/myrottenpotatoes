@@ -13,7 +13,7 @@ import "@popperjs/core"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-Rails.start()
+//Rails.start()
 //Turbolinks.start()
 ActiveStorage.start()
 

@@ -5,10 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :omniauthable, :omniauth_providers => [:facebook]
 
-  attr_accessor :uid, :provider, :name # see text for explanation
-  has_many :reviews
-  has_many :movies, :through => :reviews
-
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
