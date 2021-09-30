@@ -311,6 +311,4 @@ Devise.setup do |config|
 
   #facebook login app id
   config.omniauth :facebook, "903061163636345", "5309162e7d8fae8c6ca98872e10de50a", callback_url:"http://localhost:3000/users/auth/facebook/callback"
-  config.sign_out_via = :get
-
 end
