@@ -24,6 +24,7 @@
 
 a {
     color: black;
+    cursor: pointer;
     text-decoration: none;
 }
 
@@ -124,12 +125,12 @@ a {
 .message {
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: .5rem 1rem;
 
     &#notice {
         color: black;
-        background: $green;
+        background: #6ae798;
     }
 
     &#warning {
