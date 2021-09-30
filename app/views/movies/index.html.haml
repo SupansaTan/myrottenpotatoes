@@ -1,15 +1,15 @@
 - content_for(:head) do
   = stylesheet_link_tag 'index'
 
+%a.btn.black.fw-bold.me-1.add-movie.text-yellow{:href => new_movie_path}
+  %i.fas.fa-plus
+  %span
+
 .row
   .col.d-flex.align-items-center
     %h3.mb-0 All Movies
 
   .col-auto.d-flex.align-items-center
-    %a.btn.green.fw-bold.me-1{:href => new_movie_path}
-      %i.fas.fa-plus
-      Add new movie
-    
     %h4#rating-filter.mx-2.mb-0 Filter by Rating:
 
 .row.row-cols-4.g-4.mt-2
