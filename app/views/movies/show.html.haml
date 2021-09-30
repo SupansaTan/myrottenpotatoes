@@ -30,7 +30,7 @@
       
       -if current_user
         -if Review.find_by(user_id:current_user.id, movie_id:@movie.id)
-          %a.btn.green.add-review{url:edit_movie_review_path(@movie)}
+          %a.btn.yellow.add-review{url:edit_movie_review_path(@movie)}
             %i.fas.fa-pen
             Edit my review
         -else
@@ -43,3 +43,5 @@
         Delete
 
 %div{:id=>"review-modal-container", :class=>"modal"}
+
+= javascript_pack_tag 'review_modal', 'data-turbolinks-track' => false
