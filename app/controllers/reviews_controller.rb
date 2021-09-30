@@ -17,6 +17,7 @@ class ReviewsController < ApplicationController
     def new
       @movie = Movie.find(params[:movie_id])
       @review = @review || @movie.reviews.new
+      @average_review = Movie.get_average_review(@movie.id)
       render(:partial => 'review_modal', :locals => {:movie => @movie, :review => @review}) if request.xhr?
     end
 
@@ -36,7 +37,8 @@ class ReviewsController < ApplicationController
 
     def edit
       @movie = Movie.find params[:movie_id]
-      @review = Review.find_by(movie_id:@movie.id, user_id:@current_user.id) 
+      @review = Review.find_by(movie_id:@movie.id, user_id:@current_user.id)
+      @average_review = Movie.get_average_review(@movie.id)
       render(:partial => 'review_modal', :locals => {:movie => @movie, :review => @review}) if request.xhr?    
     end
 

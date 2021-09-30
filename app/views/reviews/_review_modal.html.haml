@@ -22,7 +22,7 @@
               %p.fw-bold.d-inline.bg-yellow.px-2.m-1.rounded.shadow-sm= 'Rating: ' + @movie.rating
             %p.fw-bold.d-inline.bg-black.text-yellow.px-2.m-1.rounded.shadow-sm= 'Released on: ' + @movie.release_date.strftime('%Y-%m-%d')
           
-          %p.fw-bold.my-2.text-center= 'Average Review Point:'
+          %p.fw-bold.my-2.text-center= 'Average Review Point: ' + @average_review.to_s
           
           -# review movie form
           %h5.ms-3.mt-4= 'Review:'

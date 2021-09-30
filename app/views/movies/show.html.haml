@@ -21,7 +21,7 @@
 			
   .row.m-2
     .col.me-auto.d-flex.align-items-center
-      %p.mb-0.fw-bold= 'Average Review Point:'
+      %p.mb-0.fw-bold= 'Average Review Point: ' + @average_review.to_s
       
     .col-auto.ms-auto
       %a.btn.yellow{href:edit_movie_path(@movie)}
