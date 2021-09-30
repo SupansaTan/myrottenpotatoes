@@ -1,5 +1,5 @@
 class MoviesController < ApplicationController
-    before_action :has_user, :only => [:new, :create, :edit, :update, :destroy]
+    before_action :has_user, :only => [:new, :create, :show, :edit, :update, :destroy]
 
     protected
     def has_user
