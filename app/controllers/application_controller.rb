@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate!
         unless @current_user
-            # redirect_to login_path
+            flash[:warning] = 'You must be logged in before.'
         end
     end
 end
