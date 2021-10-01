@@ -1,5 +1,10 @@
 require 'rails_helper'
 
+def login_user(user)
+  sign_in user
+  @current_user = user
+end
+
 describe MoviesController do
   describe 'searching TMDb' do
     before :each do
@@ -27,50 +32,65 @@ describe MoviesController do
       end
     end
   end
+
   describe 'create movie' do
     before :each do
-      @movie_attr = {movie: {:title => 'test',rating: 'R',release_date: '2021-09-22',description: 'description'}}
+      login_user(FactoryGirl.create(:user))
+      @movie_attr = {movie: {:title => 'test',:rating=>'R',:release_date=>'2021-09-22',:description=>'description',:poster_path => nil}}
     end
+
     it "creates new movie" do
       expect{
         post :create, params: @movie_attr
       }.to change(Movie,:count).by(1)
     end
+    
     it "redirect to movie page" do
       post :create, params: @movie_attr
     end
   end
+
   describe 'delete' do
     before :each do
+      login_user(FactoryGirl.create(:user))
       @fact_movie = FactoryGirl.create(:movie)
     end
+
     it "delete movie" do
       expect{
         delete :destroy, params: {id: @fact_movie.id}     
       }.to change(Movie,:count).by(-1)
     end
+
     it "redirect to index page" do
       delete :destroy, params: {id: @fact_movie.id}   
       expect(response).to redirect_to(:action => 'index') 
     end
   end
+
   describe 'show' do
     before :each do
+      login_user(FactoryGirl.create(:user))
       @fact_movie = FactoryGirl.create(:movie)
     end
+
     it "show detail movie page" do
       post :show, params: {id: @fact_movie.id}     
       expect(response).to render_template('show')
     end
   end
+  
   describe 'edit' do
     before :each do
+      login_user(FactoryGirl.create(:user))
       @fact_movie = FactoryGirl.create(:movie)
     end
+
     it "edit movie" do
       get :edit, params: {id: @fact_movie.id}     
       expect(assigns(:movie).title)==("new")
     end
+
     it "redirects to the movie page" do
       post :show, params: {id: @fact_movie.id}    
       expect(response).to render_template('show')
