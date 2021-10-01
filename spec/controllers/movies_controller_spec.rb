@@ -8,6 +8,7 @@ end
 describe MoviesController do
   describe 'searching TMDb' do
     before :each do
+      login_user(FactoryGirl.create(:user))
       @fake_results = [double('movie1'), double('movie2')]
     end
 
