@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
 
     def authenticate!
         unless @current_user
-            flash[:warning] = 'You must be logged in before.'
+            flash[:warning] = 'You must be logged in with Facebook before.'
         end
     end
 end
