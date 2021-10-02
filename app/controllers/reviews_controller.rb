@@ -58,6 +58,6 @@ class ReviewsController < ApplicationController
 
     private
     def review_params
-      params.permit(:potatoes)
+      params.require(:review).permit(:potatoes)
     end
 end
