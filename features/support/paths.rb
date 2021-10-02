@@ -10,6 +10,9 @@ module NavigationHelpers
   #
   # step definition in web_steps.rb
   #
+
+  @movie = Movie.create!(:title => 'test', :rating =>'G', :release_date=>"2017-04-12", :description=>'')
+
   def path_to(page_name)
     case page_name
 
@@ -27,6 +30,9 @@ module NavigationHelpers
       
     when /^the Search TMDb page/
       "/movies/search_tmdb"
+
+    when /^the show page/
+      "/movies/#{@movie.id}"
 
     when /^(.+) page/
       "/movies/#{Movie.last.id}"
