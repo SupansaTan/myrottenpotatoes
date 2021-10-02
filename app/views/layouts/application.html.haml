@@ -22,7 +22,7 @@
           %ul.navbar-nav.col
             = form_tag({:controller=>'movies', :action=>'search_tmdb'}, :method=>'get', :id=>'search-in-tmdb', :class=>'m-0 row w-100') do
               .search-group.col-6.mx-auto
-                %a{:href => '#', :onclick => "document.getElementById('search-in-tmdb').submit()"}
+                %a{:href => '#', :onclick => "if($(input[name='search_terms']).val() != '') {document.getElementById('search-in-tmdb').submit()}"}
                   %i.fa.fa-search
                 %input.form-control.search{:type=>'search', :placeholder=>'Search movie in TMDb ...', :name => 'search_terms', :required => true}
 
