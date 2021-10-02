@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :user do
-    id '1'
+    id '100'
     password '123456'
     email 'joe_bloggs@example.com'
     created_at {DateTime.now}
