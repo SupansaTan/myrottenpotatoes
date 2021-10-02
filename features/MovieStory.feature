@@ -5,8 +5,9 @@ Feature: User can manually add movie/edit movie/delete movie
 Scenario: Add a movie
   Given I am on the homepage
   When I follow "Log in with Facebook"
-  Then I should see "Successfully authenticated from Facebook account"
-  When I go to "the Create New Movie page"
+  Then I should see "Successfully authenticated from Facebook account."
+  And I should see "Welcome!, John Doe"
+  When I go to the Create New Movie page
   Then I should be on the Create New Movie page
   When I fill in "Title" with "Men In Black"
   And I select "PG-13" from "Rating"
