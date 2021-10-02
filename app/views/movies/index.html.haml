@@ -1,21 +1,25 @@
 - content_for(:head) do
   = stylesheet_link_tag 'index'
 
+-if @current_user
+  %a.btn.black.fw-bold.me-1.add-movie.text-yellow{:href => new_movie_path}
+    %i.fas.fa-plus
+    %span
+
 .row
   .col.d-flex.align-items-center
     %h3.mb-0 All Movies
 
   .col-auto.d-flex.align-items-center
-    %a.btn.green.fw-bold.me-1{:href => new_movie_path}
-      %i.fas.fa-plus
-      Add new movie
-    
-    %h4#rating-filter.mx-2.mb-0 Filter by Rating:
+    -if @current_user
+      %h4#rating-filter.mx-2.mb-0 Filter by Rating:
 
 .row.row-cols-4.g-4.mt-2
   = render :partial => 'movie', :collection => @sort_movies
 
 %div{:id=>"movie-info-container", :class=>"modal"}
+%div{:id=>"review-modal-container", :class=>"modal"}
 
-= javascript_pack_tag 'movie_modal'
-= javascript_pack_tag 'movie_rating_filter'
+= javascript_pack_tag 'movie_modal', 'data-turbolinks-track' => false
+= javascript_pack_tag 'movie_rating_filter', 'data-turbolinks-track' => false
+= javascript_pack_tag 'review_modal', 'data-turbolinks-track' => false

@@ -1,0 +1,75 @@
+#review-modal.modal-dialog.modal-dialog-centered.modal-xl
+  .modal-content.border-0.rounded
+    .modal-header.border-0
+      %button.btn-close{:type=>'button', 'data-bs-dismiss'=>'modal', 'aria-label'=>'Close'}
+            
+    .modal-body.pt-0
+      .row.m-2
+        -# movie info
+        .col-3.mx-2
+          - if !@movie.poster_path.to_s.empty?
+            .card-poster.my-2
+              %img.poster.shadow{:src => 'https://image.tmdb.org/t/p/w300' + @movie.poster_path.to_s}
+
+          - else 
+            .card-poster.my-2.potatoes.shadow
+              = image_tag 'potatoes.svg', :class=>'mx-auto potatoes'
+
+        .col.mx-2.bg-grey.rounded.p-3
+          %h4.text-center= @movie.title
+          .d-flex.justify-content-center
+            - if @movie.rating
+              %p.fw-bold.d-inline.bg-yellow.px-2.m-1.rounded.shadow-sm= 'Rating: ' + @movie.rating
+            %p.fw-bold.d-inline.bg-black.text-yellow.px-2.m-1.rounded.shadow-sm= 'Released on: ' + @movie.release_date.strftime('%Y-%m-%d')
+          
+          %p.fw-bold.my-2.text-center= 'Average Review Point: ' + @average_review.to_s
+          
+          -# review movie form
+          %h5.ms-3.mt-4= 'Review:'
+          .d-flex.justify-content-center.align-items-center
+            = form_tag "#{@review.potatoes ? movie_review_path(@movie, @review) : movie_reviews_path(@movie)}", :method=>"#{@review.potatoes ? 'put':'post'}" do
+
+              %p.ms-3.my-2.d-inline= 'How many potatoes?'
+
+              .potatoes-radio-group.p-2.d-inline
+                -if @review.potatoes  # highlight potatoes by pototoes score when edit/update review
+                  :javascript
+                    $('input[type="radio"][id="' + #{@review.potatoes} + '"]').prop('checked', true);
+  
+                    for(let i=1; i<6; i++) {
+                      if(i <= $('input[name="review[potatoes]"]:checked').val()) {
+                        $('input[type="radio"][id="' + i + '"]').addClass('highlight')
+                        $('label#' + i).find('img').addClass('highlight')
+                        $('label#' + i).find('img').removeClass('not-selected')
+                      }
+                      else {
+                        $('input[type="radio"][id="' + i + '"]').removeClass('highlight')
+                        $('label#' + i).find('img').removeClass('highlight')
+                        $('label#' + i).find('img').addClass('not-selected')
+                      }
+                    }
+
+                -# radio potatoes button for vote score
+                %label#1.mx-1
+                  %input#1.potatoes-radio{:type=>"radio", :name=>'review[potatoes]', :value=>'1'}
+                  = image_tag 'rottenpotatoes-logo.svg', :class=>'potatoes-icon'
+
+                %label#2.mx-1
+                  %input#2.potatoes-radio{:type=>"radio", :name=>'review[potatoes]', :value=>'2'}
+                  = image_tag 'rottenpotatoes-logo.svg', :class=>'potatoes-icon'
+
+                %label#3.mx-1
+                  %input#3.potatoes-radio{:type=>"radio", :name=>'review[potatoes]', :value=>'3'}
+                  = image_tag 'rottenpotatoes-logo.svg', :class=>'potatoes-icon'
+
+                %label#4.mx-1
+                  %input#4.potatoes-radio{:type=>"radio", :name=>'review[potatoes]', :value=>'4'}
+                  = image_tag 'rottenpotatoes-logo.svg', :class=>'potatoes-icon'
+
+                %label#5.mx-1
+                  %input#5.potatoes-radio{:type=>"radio", :name=>'review[potatoes]', :value=>'5'}
+                  = image_tag 'rottenpotatoes-logo.svg', :class=>'potatoes-icon'
+
+              %button.btn.green.my-4.d-block.mx-auto{:type =>'submit'}
+                %i{class:"#{@review.potatoes ? 'fas fa-sync-alt':'fas fa-plus'}"}
+                #{@review.potatoes ? 'Update Review' : 'Create Review'}

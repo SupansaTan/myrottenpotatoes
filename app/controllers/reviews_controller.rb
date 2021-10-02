@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-    before_action :has_user_and_movie, :only => [:new, :create, :edit, :update]        ##### uncomment this when login can work
+    before_action :has_user_and_movie, :only => [:new, :create, :edit, :update]    
 
     protected
     def has_user_and_movie
@@ -16,16 +16,17 @@ class ReviewsController < ApplicationController
     public
     def new
       @movie = Movie.find(params[:movie_id])
-      @review ||= @movie.reviews.new
       @review = @review || @movie.reviews.new
+      @average_review = Movie.get_average_review(@movie.id)
+      render(:partial => 'review_modal', :locals => {:movie => @movie, :review => @review}) if request.xhr?
     end
 
     def create
       @movie = Movie.find(params[:movie_id])
       @review = @movie.reviews.build(review_params)
-      @review.user_id = 1                                   ##### delete this line when Login part can be use
+      @review.user_id = @current_user.id
 
-      if @review.save
+      if @review.save(validate: false)
         flash[:notice] = "Review was successfully created."
         redirect_to movie_path(@movie)
       else
@@ -36,17 +37,17 @@ class ReviewsController < ApplicationController
 
     def edit
       @movie = Movie.find params[:movie_id]
-      #@review = Review.find params[:id]
-      @review = Review.find_by(movie_id:@movie.id, user_id:1)     ##### user_id:@current_user_id when login can work
+      @review = Review.find_by(movie_id:@movie.id, user_id:@current_user.id)
+      @average_review = Movie.get_average_review(@movie.id)
+      render(:partial => 'review_modal', :locals => {:movie => @movie, :review => @review}) if request.xhr?    
     end
 
     def update
       @movie = Movie.find params[:movie_id]
-      #@review = Review.find params[:id]
-      @review = Review.find_by(movie_id:@movie.id, user_id:1)     ##### user_id:@current_user_id when login can work
+      @review = Review.find_by(movie_id:@movie.id, user_id:@current_user.id)     
       @review.update(review_params) 
 
-      if @review.save
+      if @review.save(validate: false)
         flash[:notice] = "Review was successfully updated."
         redirect_to movie_path(@movie)
       else

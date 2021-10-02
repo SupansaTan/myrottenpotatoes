@@ -9,12 +9,12 @@
 
 import Rails from "@rails/ujs"
 import "@popperjs/core"
-import Turbolinks from "turbolinks"
+//import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-Rails.start()
-Turbolinks.start()
+//Rails.start()
+//Turbolinks.start()
 ActiveStorage.start()
 
 import JQuery from 'jquery'

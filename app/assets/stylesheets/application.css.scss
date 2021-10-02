@@ -18,12 +18,13 @@
 @import "bootstrap/scss/bootstrap";
 @import 'variables';
 
-body {
+* {
     font-family: $font-stack;
 }
 
 a {
     color: black;
+    cursor: pointer;
     text-decoration: none;
 }
 
@@ -124,16 +125,43 @@ a {
 .message {
     font-size: 1.2rem;
     font-weight: bold;
-    border-radius: 15px;
+    border-radius: 10px;
     padding: .5rem 1rem;
 
     &#notice {
         color: black;
-        background: $green;
+        background: #6ae798;
     }
 
     &#warning {
         color: red;
         background: $light-red;
+    }
+}
+
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    & + img {
+        cursor: pointer;
+    }
+
+    &:checked + img, &.highlight + img {
+        filter: drop-shadow(3px 0 0px saddlebrown) drop-shadow(0 3px 0 saddlebrown) 
+        drop-shadow(-3px 0 0px saddlebrown) drop-shadow(0 -3px 0 saddlebrown);
+    }
+}
+
+.potatoes-radio-group {
+    img {
+        width: 50px;
+        height: auto;
+
+        &.not-selected {
+            opacity: 0.5;
+        }
     }
 }

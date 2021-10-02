@@ -12,30 +12,36 @@
     .col.mx-2.bg-grey.rounded.p-3
       %h4.text-center= @movie.title
       .d-flex.justify-content-center
-        %p.fw-bold.d-inline.bg-yellow.px-2.m-1.rounded.shadow-sm= 'Rating: ' + @movie.rating
+        -if @movie.rating
+          %p.fw-bold.d-inline.bg-yellow.px-2.m-1.rounded.shadow-sm= 'Rating: ' + @movie.rating
         %p.fw-bold.d-inline.bg-black.text-yellow.px-2.m-1.rounded.shadow-sm= 'Released on: ' + @movie.release_date.strftime('%Y-%m-%d')
-      %h5= 'Description:'
-      %p.mx-3= @movie.description
+      -if @movie.description
+        %h5= 'Description:'
+        %p.mx-3= @movie.description
 			
   .row.m-2
     .col.me-auto.d-flex.align-items-center
-      %p.mb-0.fw-bold= 'Average Review Point:'
+      %p.mb-0.fw-bold= 'Average Review Point: ' + @average_review.to_s
       
     .col-auto.ms-auto
       %a.btn.yellow{href:edit_movie_path(@movie)}
         %i.fas.fa-pen
         Edit Movie
       
-      -# if login part complete change user_id:1 to user_id:@current_uesr.id #######
-      -if Review.find_by(user_id:1, movie_id:@movie.id)
-        %a.btn.green{href:edit_movie_review_path(@movie)}
-          %i.fas.fa-pen
-          Edit my review
-      -else
-        %a.btn.green{href:new_movie_review_path(@movie)}
-          %i.fas.fa-plus
-          Add Review
+      -if current_user
+        -if Review.find_by(user_id:current_user.id, movie_id:@movie.id)
+          %a.btn.yellow.add-review{url:edit_movie_review_path(@movie)}
+            %i.fas.fa-pen
+            Edit my review
+        -else
+          %a.btn.green.add-review{url:new_movie_review_path(@movie)}
+            %i.fas.fa-plus
+            Add Review
 
       %a.btn.red{href:movie_path(@movie), 'data-method' => :delete}
         %i.fas.fa-trash
         Delete
+
+%div{:id=>"review-modal-container", :class=>"modal"}
+
+= javascript_pack_tag 'review_modal', 'data-turbolinks-track' => false

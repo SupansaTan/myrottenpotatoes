@@ -2,8 +2,8 @@
   %head
     %title RottenPotatoes!
     = favicon_link_tag 'rottenpotatoes-logo.svg'
-    = javascript_pack_tag 'application', 'data-turbolinks-track' => true
-    = stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track' => true
+    = javascript_pack_tag 'application', 'data-turbolinks-track' => false
+    = stylesheet_link_tag "application", media: 'all', 'data-turbolinks-track' => false
     = yield(:head)
     = csrf_meta_tags
  
@@ -37,11 +37,4 @@
 
       = yield
 
-  = javascript_pack_tag 'custom'
-
-  :javascript
-    $(document).ready( function() {
-      $(".dropdown-toggle").click(function() {
-        $(".dropdown-toggle").dropdown("toggle")
-      })
-    });
+  = javascript_pack_tag 'custom', 'data-turbolinks-track' => false
