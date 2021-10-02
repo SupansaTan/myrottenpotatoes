@@ -39,14 +39,9 @@ Scenario: Delete a movie
   Given I am on the homepage
   When I follow "Log in with Facebook"
   Then I should see "Successfully authenticated from Facebook account."
-  Given I am on the RottenPotatoes home page
-  When I follow "Add new movie"
-  Then I should be on the Create New Movie page
-  When I fill in "Title" with "Men In Black"
-  And I select "PG-13" from "Rating"
-  And I press "Save Changes"
-  Then I should be on Men In Black page
-  And I should see "Men In Black"
+  And I should see "Welcome!, John Doe"
+  When I go to "the show page"
+  Then I should see "Delete"
   Then I follow "Delete"
   Then I should be on the RottenPotatoes home page
-
+  And I should see "Movie 'Test' deleted."
