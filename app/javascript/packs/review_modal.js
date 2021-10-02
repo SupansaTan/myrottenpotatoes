@@ -30,6 +30,7 @@ $(document).on('click', 'input[name="review[potatoes]"]', highlightPotatoes);
 
 function highlightPotatoes() {
   let vote = $('input[name="review[potatoes]"]:checked').val()
+  $('button.submit-review').prop('disabled', false);
   
   for(let i=1; i<6; i++) {
     if(i <= vote) {

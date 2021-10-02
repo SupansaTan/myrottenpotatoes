@@ -40,7 +40,7 @@ class Movie < ActiveRecord::Base
   def self.get_average_review(id)
     movie = Movie.find(id)
     average = 0
-
+    
     if movie.reviews.size > 0
       movie.reviews.each{ |review|
         average += review.potatoes
