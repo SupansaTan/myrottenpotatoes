@@ -43,7 +43,7 @@ class Movie < ActiveRecord::Base
     
     if movie.reviews.size > 0
       movie.reviews.each{ |review|
-        average += review.potatoes.to_i
+        average += review.potatoes
       }
       return average /= movie.reviews.size
     else
