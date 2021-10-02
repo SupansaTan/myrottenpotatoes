@@ -70,6 +70,6 @@
                   %input#5.potatoes-radio{:type=>"radio", :name=>'review[potatoes]', :value=>'5'}
                   = image_tag 'rottenpotatoes-logo.svg', :class=>'potatoes-icon'
 
-              %button.btn.green.my-4.d-block.mx-auto.submit-review{:type =>'submit', :disabled=> @review.potatoes ? 'false':'true' }
+              %button.btn.green.my-4.d-block.mx-auto.submit-review{:type =>'submit', :disabled=> !@review.potatoes? }
                 %i{class:"#{@review.potatoes ? 'fas fa-sync-alt':'fas fa-plus'}"}
                 #{@review.potatoes ? 'Update Review' : 'Create Review'}
