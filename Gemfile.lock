@@ -206,6 +206,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0901)
     mini_mime (1.1.1)
+    mini_portile2 (2.6.1)
     minitest (5.14.4)
     msgpack (1.4.2)
     multi_json (1.15.0)
@@ -213,11 +214,8 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.1.1)
     nio4r (2.5.8)
-    nokogiri (1.12.5-arm64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-darwin)
-      racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
+    nokogiri (1.12.5)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     oauth (0.5.6)
     oauth2 (1.4.7)
@@ -241,6 +239,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    pg (1.2.3)
     phantomjs (2.1.1.0)
     popper_js (2.9.3)
     public_suffix (4.0.6)
@@ -334,7 +333,6 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    sqlite3 (1.4.2)
     sys-uname (1.2.2)
       ffi (~> 1.1)
     temple (0.8.2)
@@ -369,6 +367,7 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
+  aarch64-linux-musl
   arm64-darwin
   x86_64-darwin-20
   x86_64-linux
@@ -393,6 +392,7 @@ DEPENDENCIES
   omniauth (~> 1.9.1)
   omniauth-facebook (~> 6.0.0)
   omniauth-twitter (~> 1.4.0)
+  pg
   popper_js
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
@@ -402,7 +402,6 @@ DEPENDENCIES
   sass-rails (>= 6)
   selenium-webdriver
   spring
-  sqlite3 (~> 1.4)
   themoviedb
   tzinfo-data
   web-console (>= 4.1.0)
