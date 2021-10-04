@@ -42,9 +42,7 @@ yarn-debug.log*
 .tmdb_key.rb
 
 .DS_store
-<<<<<<< HEAD
-.vercel
-=======
+
 .vercel
 .env
->>>>>>> 828b54d5ad1511051c2b1a4592d6eae771af0426
+

@@ -86,7 +86,7 @@ gem 'jquery-rails'
 #facebook login
 gem 'devise'
 gem 'omniauth-facebook' , "~> 6.0.0"
-<<<<<<< HEAD
+
 gem 'bootstrap', '~> 5.1.0'
 
 gem 'popper_js'
@@ -99,9 +99,4 @@ group :production do
   gem 'pg'         #gem to use in production environment
   gem 'activerecord-postgresql-adapter'
 end
-=======
 
-gem 'bootstrap', '~> 5.1.0'
-
-gem 'popper_js'
->>>>>>> 828b54d5ad1511051c2b1a4592d6eae771af0426

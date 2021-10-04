@@ -12,19 +12,6 @@ import "@popperjs/core"
 //import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
-<<<<<<< HEAD
-=======
-
-Rails.start()
-//Turbolinks.start()
-ActiveStorage.start()
-
-import JQuery from 'jquery'
-window.$ = window.JQuery = JQuery
-import "bootstrap"
-
-import "@fortawesome/fontawesome-free/css/all" // font awesome
->>>>>>> 828b54d5ad1511051c2b1a4592d6eae771af0426
 
 Rails.start()
 //Turbolinks.start()
